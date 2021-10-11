@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
+const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -16,18 +17,29 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, 'public'),
+    hot: true
   },
   plugins: [
+    isDevelopment && new ReactRefreshPlugin(),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html')
     })
-  ],
+    // Caso não esteja em desenvolvimento a primeira parte do array irá retornar false, por isso o filter é utilizado.
+    // false não é uma plugin válido para o webpack
+  ].filter(Boolean),
   module: {
     rules: [
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: {
+          loader:'babel-loader',
+          options: {
+            plugins: [
+              isDevelopment && require.resolve('react-refresh/babel')
+            ].filter(Boolean)
+          }
+        },
       },
       {  
         test: /\.scss$/,
