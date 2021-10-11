@@ -4,8 +4,14 @@ import { RepositoryItem } from './Item'
 
 import './styles/style.scss'
 
+type Repository = {
+  name: string
+  description: string
+  html_url: string
+}
+
 export function Repository() {
-  const [repositories, setRepositories] = useState([])
+  const [repositories, setRepositories] = useState<Repository[]>([])
 
   useEffect(() => {
     fetch("https://api.github.com/orgs/rocketseat/repos")
