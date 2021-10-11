@@ -1,5 +1,8 @@
+import { Repository } from './components/Repository/List'
 import './styles/global.scss'
 
 export function App() {
-  return <h1>Hello React.js</h1>
+  return(
+    <Repository/>
+  )
 }
