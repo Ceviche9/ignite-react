@@ -1,9 +1,6 @@
 import logoImg from '../../Assets/logo.svg'
 import { Container, Content } from './style'
-
-type HeaderProps = {
-  onOpenNewTransactionModal: () => void;
-}
+import { HeaderProps } from './types'
 
 export const Header = ({onOpenNewTransactionModal}: HeaderProps) => {
   return (
