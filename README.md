@@ -18,3 +18,11 @@ Neste módulo é abordado a criação e configuração (através do Webpack + Ba
 Esse projeto é um pequeno listador de repositórios do github.
 
 ## Chapter II - DT Money
+
+Neste módulo são abordadas as seguintes tecnologias e bibliotecas:
+
+- [create-react-app](https://create-react-app.dev/)
+- [Axios](https://axios-http.com/docs/intro)
+- [styled-components](https://styled-components.com/)
+- [MirageJs](https://miragejs.com/)
+- [polished](https://polished.js.org/)
