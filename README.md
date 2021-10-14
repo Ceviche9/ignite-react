@@ -97,7 +97,7 @@ createServer({
 })
 
 ```
-Apos configurar o mirage as chamadas a api poderam ser feitas normalmente utilizando o fetch, axios ou outra lib para APIs.
+Apos configurar o mirage as chamadas a api podem ser feitas normalmente utilizando o fetch, axios ou outra lib para APIs.
 
 > src/services/api.ts:
 
