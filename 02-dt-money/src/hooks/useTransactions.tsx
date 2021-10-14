@@ -1,4 +1,4 @@
-import {createContext, useEffect, useState} from 'react'
+import {createContext, useContext, useEffect, useState} from 'react'
 import { ResponseProps, 
         TransactionInput,
         TransactionProps, 
@@ -7,7 +7,7 @@ import { ResponseProps,
 from '../protocols/componentsProtocols';
 import { api } from '../services/api';
 
-export const TransactionContext = createContext<TransactionsContextDataProps>(
+const TransactionContext = createContext<TransactionsContextDataProps>(
   {} as TransactionsContextDataProps
 );
 
@@ -39,4 +39,10 @@ export const TransactionsProvider = ({children}: TransactionsProviderProps) => {
       {children}
     </TransactionContext.Provider>
   )
+}
+
+export const useTransactions = () => {
+  const context = useContext(TransactionContext)
+
+  return context
 }
