@@ -97,3 +97,32 @@ createServer({
 })
 
 ```
+Apos configurar o mirage as chamadas a api poderam ser feitas normalmente utilizando o fetch, axios ou outra lib para APIs.
+
+> src/services/api.ts:
+
+``` Ts
+import axios from 'axios';
+
+export const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+})
+
+```
+> src/components/Table/index.tsx
+
+```Ts
+  const [transactions, setTransactions] = useState<TransactionProps[]>([])
+
+  const handleTransactionsResponse = (data: ResponseProps) => {
+    setTransactions(data.transactions)
+  }
+    
+  useEffect(() => {
+    api.get('/transactions')
+      .then(response => handleTransactionsResponse(response.data as ResponseProps))
+  },[])
+
+```
+
+
