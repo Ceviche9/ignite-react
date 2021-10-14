@@ -23,8 +23,9 @@ export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModa
     category, 
     transactionType
   }
-
-  api.post('/transactions', data) 
+  
+  api.post('/transactions', data)
+  onRequestClose()
 }
   return(
     <Modal

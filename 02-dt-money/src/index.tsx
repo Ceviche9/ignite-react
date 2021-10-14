@@ -5,6 +5,7 @@ import {App} from './App';
 
 createServer({
 
+  // O mirageJs permite que vc crie um tabelas para simular um banco de dados.
   models: {
     transaction: Model,
   },
@@ -53,6 +54,7 @@ createServer({
 
     this.post('/transactions', (schema, request) => {
       const data = JSON.parse(request.requestBody)
+      console.log("dentro do post", data)
 
       // Schema -> banco de dados do mirage
 
