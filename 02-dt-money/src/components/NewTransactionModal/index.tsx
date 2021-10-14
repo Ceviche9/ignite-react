@@ -5,7 +5,7 @@ import incomeImg from '../../Assets/income.svg'
 import outcomeImg from '../../Assets/outcome.svg'
 import { api } from '../../services/api'
 import { Container, TransactionTypeContainer, RadioBox } from './style'
-import { NewTransactionModalProps } from './types'
+import { NewTransactionModalProps } from '../protocols/componentsProtocols'
 
 export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModalProps) => {
   const [title, setTitle] = useState('')

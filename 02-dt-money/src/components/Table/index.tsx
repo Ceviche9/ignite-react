@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { api } from "../../services/api"
-import { ResponseProps, TransactionProps } from "./types"
+import { ResponseProps, TransactionProps } from "../protocols/componentsProtocols"
 
 import { Container } from "./style"
 

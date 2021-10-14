@@ -1,3 +1,12 @@
+export type HeaderProps = {
+  onOpenNewTransactionModal: () => void;
+}
+
+export type NewTransactionModalProps = {
+  isOpen: boolean
+  onRequestClose: () => void;
+}
+
 export type TransactionProps = {
   id: number
   title: string
