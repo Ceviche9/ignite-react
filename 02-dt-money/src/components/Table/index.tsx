@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react"
-import { api } from "../../services/api"
-import { ResponseProps, TransactionProps } from "../protocols/componentsProtocols"
+import { useContext } from "react"
+import { TransactionContext } from "../../hooks/TransactionContext"
 
 import { Container } from "./style"
 
 export const Table = () => {
-  const [transactions, setTransactions] = useState<TransactionProps[]>([])
-
-  const handleTransactionsResponse = (data: ResponseProps) => {
-    setTransactions(data.transactions)
-  }
-    
-  useEffect(() => {
-    api.get('/transactions')
-      .then(response => handleTransactionsResponse(response.data as ResponseProps))
-  },[])
+  const {transactions} = useContext(TransactionContext)
 
   return(
     <Container>
@@ -30,29 +20,33 @@ export const Table = () => {
 
         <tbody>
           {
-            transactions.map(transaction => (
-              <tr
-                key={transaction.id}
-              >
-                <td>{transaction.title}</td>
-                <td className={transaction.type}>
-                  {
-                    new Intl.NumberFormat('pt-BR', {
-                      style: 'currency',
-                      currency: 'BRL' 
-                    }).format(transaction.amount)
-                  }
-                </td>
-                <td>{transaction.category}</td>
-                <td>
-                  {
-                    new Intl.DateTimeFormat('pt-BR').format(
-                     new Date(transaction.createdAt)
-                    )
-                  }
-                </td>
-              </tr>
-            ))
+            transactions.map(transaction => {
+              if(transaction) {
+                const createdAt = new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))
+                const amount = new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL' 
+                }).format(transaction.amount)
+
+                return(
+                <tr
+                  key={transaction.id}
+                >
+                  <td>{transaction.title}</td>
+                  <td className={transaction.type}>
+                    {amount}
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>
+                    {createdAt}
+                  </td>
+                </tr>
+              )
+              } else {
+                return null
+              }
+            }
+            )
           }
             
         </tbody>

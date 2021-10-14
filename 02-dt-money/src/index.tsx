@@ -54,8 +54,6 @@ createServer({
 
     this.post('/transactions', (schema, request) => {
       const data = JSON.parse(request.requestBody)
-      console.log("dentro do post", data)
-
       // Schema -> banco de dados do mirage
 
       // Transaction -> Model que criei pelo mirage
