@@ -29,7 +29,7 @@ Neste módulo são abordadas as seguintes tecnologias e bibliotecas:
 
 ## MirageJs
 
-Mirage JS é uma biblioteca que permite simular, construir, testar e partilhar uma API para uma aplicação JavaScript ou Typescript. No Mirage é possivel criar uma servidor, um banco de dados, seeds para o banco de dados e até mesmo testes de UI. Neste módulo o mirage foi utilizado para simular uma api que armazena e retorna as transações do usuário.
+Mirage JS é uma biblioteca que permite simular, construir, testar e partilhar uma API para uma aplicação JavaScript/Typescript. No Mirage é possivel criar uma servidor, um banco de dados, seeds para o banco de dados e até mesmo testes de UI. Neste módulo o mirage foi utilizado para simular uma api que armazena e retorna as transações do usuário.
 
 ### Configuração:
 
