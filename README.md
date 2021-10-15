@@ -109,11 +109,11 @@ export const api = axios.create({
 })
 
 ```
-> src/components/Table/index.tsx
+> src/hooks/useTransactions.tsx:
 
 ```Ts
-  const [transactions, setTransactions] = useState<TransactionProps[]>([])
-
+const [transactions, setTransactions] = useState<TransactionProps[]>([])
+  
   const handleTransactionsResponse = (data: ResponseProps) => {
     setTransactions(data.transactions)
   }
@@ -122,6 +122,18 @@ export const api = axios.create({
     api.get('/transactions')
       .then(response => handleTransactionsResponse(response.data as ResponseProps))
   },[])
+
+  const createTransaction = async (transactionInput: TransactionInput) =>  {
+    // Quando o mirage faz um POST, por padrão ele retorna os dados que foram inseridos.
+    const response = await api.post('/transactions', transactionInput)
+
+    const { transaction } = response.data as any
+
+    setTransactions([
+      ...transactions, transaction
+    ])
+  }
+  
 
 ```
 
