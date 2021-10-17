@@ -97,27 +97,27 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     amount,
   }: UpdateProductAmount) => {
     try {
-      const productCurrentInfo = cart.find(product => product.id === productId)
-      if (productCurrentInfo) {
-        const currentProductAmount = productCurrentInfo.amount
+      if (amount <= 0) return
 
-        if (amount > currentProductAmount) {
-          const stock = await api.get(`/stock/${productId}`)
-          // Quantidade do produto no stock.
-          const stockAmount = stock.data.amount
+      // Quantidade do produto no stock.
+      const stock = await api.get(`/stock/${productId}`)
+      const stockAmount = stock.data.amount
 
-          if (amount > stockAmount) {
-            toast.error('Quantidade solicitada fora de estoque')
-            return
-          }  
-        }
+      if (amount > stockAmount) {
+        toast.error('Quantidade solicitada fora de estoque')
+        return
+      }
 
-        if (amount < 1 ) throw Error()
+      const updatedCart = cart.map(product => ({...product}))
 
-        const newCart = cart.map(product => product.id === productId ? {...product, amount} : product)
-        setCart(newCart)
+      const productExistsOnCart = updatedCart.find(product => product.id === productId)
+      // Caso o produto exista no carrinho.
+      if (productExistsOnCart) {
+        productExistsOnCart.amount = amount
+
+        setCart(updatedCart)
         // Salvando no localStorage.
-        localStorage.setItem('@RocketShoes:cart', JSON.stringify(newCart))
+        localStorage.setItem('@RocketShoes:cart', JSON.stringify(updatedCart))
       } else {
         throw Error()
       }
