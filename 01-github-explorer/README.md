@@ -1,4 +1,22 @@
 # Chapter I - Github Explorer
 
-Neste módulo é abordado a criação e configuração (através do Webpack + Babel) do projeto. Também foi reforçado o conhecimento sobre os conceitos do React (Propriedades, imutabilidade, etc).
-Esse projeto é um pequeno listador de repositórios do github.
+Fundamentos do ReactJS
+</h1>
+
+Nesse módulo criamos a estrutura base de uma aplicação React utilizando ferramentas como Webpack, Babel, Webpack Dev server, SASS, Source Maps, Fast Refresh e descobrimoss conceitos importantes do React como componentes, propriedades, estados e hooks além de aplicar o TypeScript no nosso projeto para adicionar tipagem estática à aplicação.
+
+<br>
+
+### Conteúdo
+
+- Configurando o Ambiente
+- Conceitos Importantes
+- Chamadas HTTP
+- Usando Typescript
+- Finalizando a Aplicação
+
+### Instalação e uso
+
+- rode `yarn install` para instalar as dependências.
+- rode `yarn dev` para iniciar o projeto.
+- Acesse `http://localhost:8080` no seu navegador.
