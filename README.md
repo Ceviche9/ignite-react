@@ -10,7 +10,7 @@
   <img alt="License" src="https://img.shields.io/badge/license-MIT-01B755">
 </p>
 
-Neste Repositório se encontra todos os projetos e anotações desenvolvidos na trilha de ReactJS do Ignite da [Rocketseat](https://github.com/Rocketseat).
+Neste Repositório se encontra todos os projetos e anotações desenvolvidos na trilha de ReactJS do Ignite da [Rocketseat](https://github.com/Rocketseat). No Readme de cada pasta tem uma descrição sobre o projeto/desafio, um pouco sobre os assuntos abordados e um print do projeto.
 
 # Índice
 

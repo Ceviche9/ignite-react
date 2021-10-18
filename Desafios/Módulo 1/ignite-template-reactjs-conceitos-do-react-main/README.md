@@ -1,6 +1,8 @@
 
 ## :rocket: Sobre o desafio
 
+![Captura de tela de 2021-10-18 11-46-15](https://user-images.githubusercontent.com/83431609/137754288-8bfed05a-f7c7-4a7f-b1e9-26892fae0766.png)
+
 Nesse desafio, foi criada uma aplicação para treinar o que foi aprendido até agora no ReactJS, onde o seu principal objetivo é uma pequena aplicação de atividades a fazer, para treinar um pouco mais sobre manipulação do estado no React.
 
 - Adicionar uma nova tarefa
