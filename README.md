@@ -10,131 +10,15 @@
   <img alt="License" src="https://img.shields.io/badge/license-MIT-01B755">
 </p>
 
-> Repositório onde se encontra todos os projetos desenvolvidos na trilha de ReactJS do Ignite da [Rocketseat](https://github.com/Rocketseat).
+Neste Repositório se encontra todos os projetos e anotações desenvolvidos na trilha de ReactJS do Ignite da [Rocketseat](https://github.com/Rocketseat).
 
-# Chapter I - Github Explorer
+# Índice
 
-Neste módulo é abordado a criação e configuração (através do Webpack + Babel) do projeto. Também foi reforçado o conhecimento sobre os conceitos do React (Propriedades, imutabilidade, etc).
-Esse projeto é um pequeno listador de repositórios do github.
+### Chapter I
+- [Fundamentos do ReactJS](https://github.com/Ceviche9/ignite-react/tree/main/01-github-explorer)
+- [Desafio 01: Conceitos do React](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%201/ignite-template-reactjs-conceitos-do-react-main)
+- [Desafio 02: Componentizando a aplicação](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%201/ignite-template-componentizando-a-aplicacao-main)
 
-# Chapter II - DT Money
-
-Neste módulo são abordadas as seguintes tecnologias e bibliotecas:
-
-- [create-react-app](https://create-react-app.dev/)
-- [Axios](https://axios-http.com/docs/intro)
-- [styled-components](https://styled-components.com/)
-- [MirageJs](https://miragejs.com/)
-- [polished](https://polished.js.org/)
-
-## Sobre o MirageJs
-
-Mirage JS é uma biblioteca que permite simular, construir, testar e partilhar uma API para uma aplicação JavaScript/Typescript. No Mirage é possivel criar um servidor, um banco de dados, seeds para o banco de dados e até mesmo testes de UI. Neste módulo o mirage foi utilizado para simular uma api que armazena e retorna as transações do usuário.
-
-### Configuração:
-
-``` Ts
-
-createServer({
-
-  // O mirageJs permite que vc crie um tabelas para simular um banco de dados.
-  models: {
-    transaction: Model,
-  },
-
-  seeds(server) {
-    server.db.loadData({
-      // O nome da tabela sempre vai ser o nome do model no plural.
-      transactions: [
-        {
-          id: 1,
-          title: 'Freelancer de website',
-          type: 'deposit',
-          category: 'Dev',
-          amount: 6000,
-          createdAt: new Date('2021-10-05 09:00:00')
-        },
-        {
-          id: 2,
-          title: 'Venda de Código fonte',
-          type: 'deposit',
-          category: 'Dev',
-          amount: 120000,
-          createdAt: new Date('2021-10-06 13:00:00')
-        },
-        {
-          id: 3,
-          title: 'Macbook Air',
-          type: 'withdraw',
-          category: 'Compras',
-          amount: 9000,
-          createdAt: new Date('2021-10-13 09:00:00')
-        }
-      ]
-    })
-  },
-
-  routes() {
-    // Todas as chamadas que tiverem /api serão direcionadas para o mirageJs.
-    this.namespace = 'api';
-
-    this.get('/transactions', () => {
-
-      // Para retornar as transactions salvas no banco do mirage
-      return this.schema.all('transaction')
-    });
-
-    this.post('/transactions', (schema, request) => {
-      const data = JSON.parse(request.requestBody)
-      console.log("dentro do post", data)
-
-      // Schema -> banco de dados do mirage
-
-      // Transaction -> Model que criei pelo mirage
-      return schema.create('transaction', data)
-    })
-  }
-})
-
-```
-Apos configurar o mirage as chamadas a api podem ser feitas normalmente utilizando o fetch, axios ou outra lib para APIs.
-
-> src/services/api.ts:
-
-``` Ts
-import axios from 'axios';
-
-export const api = axios.create({
-  baseURL: "http://localhost:3000/api",
-})
-
-```
-> src/hooks/useTransactions.tsx:
-
-```Ts
-const [transactions, setTransactions] = useState<TransactionProps[]>([])
-  
-  const handleTransactionsResponse = (data: ResponseProps) => {
-    setTransactions(data.transactions)
-  }
-    
-  useEffect(() => {
-    api.get('/transactions')
-      .then(response => handleTransactionsResponse(response.data as ResponseProps))
-  },[])
-
-  const createTransaction = async (transactionInput: TransactionInput) =>  {
-    // Quando o mirage faz um POST, por padrão ele retorna os dados que foram inseridos.
-    const response = await api.post('/transactions', transactionInput)
-
-    const { transaction } = response.data as any
-
-    setTransactions([
-      ...transactions, transaction
-    ])
-  }
-  
-
-```
-
-
+### Chapter II
+- [Primeira Aplicação Web com ReactJS](https://github.com/Ceviche9/ignite-react/tree/main/02-dt-money)
+- [Desafio 01: Criando um hook de carrinho de compras](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%202/ignite-template-reactjs-criando-um-hook-de-carrinho-de-compras-master)
