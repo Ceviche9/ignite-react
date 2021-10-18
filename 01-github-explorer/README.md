@@ -3,7 +3,7 @@
 Fundamentos do ReactJS
 </h1>
 
-Nesse módulo criamos a estrutura base de uma aplicação React utilizando ferramentas como Webpack, Babel, Webpack Dev server, SASS, Source Maps, Fast Refresh e descobrimoss conceitos importantes do React como componentes, propriedades, estados e hooks além de aplicar o TypeScript no nosso projeto para adicionar tipagem estática à aplicação.
+Neste projeto é abordado a criação e configuração (através do Webpack + Babel) do projeto. Também foi reforçado o conhecimento sobre os conceitos do React (Propriedades, imutabilidade, componentização e etc).Esse projeto é um pequeno listador de repositórios do github.
 
 <br>
 
