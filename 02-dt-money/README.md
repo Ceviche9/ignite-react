@@ -1,5 +1,8 @@
 # Chapter II - DT Money
 
+![Captura de tela de 2021-10-18 10-48-19](https://user-images.githubusercontent.com/83431609/137744242-049be696-0a7e-48b8-94a3-f156836f5c15.png)
+
+
 Neste módulo são abordadas as seguintes tecnologias e bibliotecas:
 
 - [create-react-app](https://create-react-app.dev/)
