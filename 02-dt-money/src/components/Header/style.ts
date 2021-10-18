@@ -3,6 +3,17 @@ import styled from 'styled-components'
 export const Container = styled.header`
   background: var(--blue);
 `
+export const LogoContainer = styled.div`
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    color: var(--shape);
+    font-size: 1.5rem;
+  }
+`
 
 export const Content = styled.div`
   max-width: 1120px;

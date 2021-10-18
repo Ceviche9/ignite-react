@@ -24,18 +24,18 @@ createServer({
         },
         {
           id: 2,
-          title: 'Venda de Código fonte',
+          title: 'Salário',
           type: 'deposit',
           category: 'Dev',
-          amount: 120000,
+          amount: 2500,
           createdAt: new Date('2021-10-06 13:00:00')
         },
         {
           id: 3,
-          title: 'Macbook Air',
+          title: 'Celular novo',
           type: 'withdraw',
           category: 'Compras',
-          amount: 9000,
+          amount: 2000,
           createdAt: new Date('2021-10-13 09:00:00')
         }
       ]

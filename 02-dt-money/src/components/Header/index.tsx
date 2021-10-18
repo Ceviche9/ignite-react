@@ -1,12 +1,15 @@
-import logoImg from '../../Assets/logo.svg'
-import { Container, Content } from './style'
+import logoImg from '../../Assets/logoIcon.svg'
+import { Container, Content, LogoContainer } from './style'
 import { HeaderProps } from '../../protocols/componentsProtocols'
 
 export const Header = ({onOpenNewTransactionModal}: HeaderProps) => {
   return (
     <Container>
       <Content>
-        <img src={logoImg} alt="dt money" />
+        <LogoContainer>
+         <img src={logoImg} alt="dt money" />
+         <h2>My Finances</h2>
+        </LogoContainer>
         <button 
           type="button"
           onClick={onOpenNewTransactionModal}
