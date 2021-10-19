@@ -22,3 +22,4 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 ### Chapter II
 - [Primeira Aplicação Web com ReactJS](https://github.com/Ceviche9/ignite-react/tree/main/02-dt-money)
 - [Desafio 01: Criando um hook de carrinho de compras](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%202/ignite-template-reactjs-criando-um-hook-de-carrinho-de-compras-master)
+- [Desafio 01: Refactoring de classes e typescript](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%202/ignite-template-reactjs-refactoring-classes-ts-master)
