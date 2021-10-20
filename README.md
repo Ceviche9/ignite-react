@@ -26,4 +26,4 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 ### Chapter III
 
--[Aplicação web com NextJs](https://github.com/Ceviche9/ignite-react/tree/main/03-devnews)
+- [Aplicação web com NextJs](https://github.com/Ceviche9/ignite-react/tree/main/03-devnews)
