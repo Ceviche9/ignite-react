@@ -1,4 +1,4 @@
-import {GetServerSideProps} from 'next'
+import {GetStaticProps} from 'next'
 import Head from 'next/head'
 import {SubscribeButton} from '../components/SubscribeButton'
 import { HomeProps } from '../protocols/homeProtocols'
@@ -27,11 +27,16 @@ export default function Home({product}: HomeProps) {
   )
 }
 
+// Os casos abaixo são utilizados juntamente com o Next para auxiliar no processo de indexação do google/outros motores.
+
+// Server-Side => Utilizado quando os dados do usuário que tá acessando a aplicação são utilizados em tempo real.
+// Static Site Generation => Utilizado quando o html da página pode ser o mesmo para todos os usuários. (ex: um blog)
+// Client- Side => Qualquer outro caso.
 
 /* Para fazer uma chamada a API via SSR: Dentro de uma página do Next,
   deve-se criar uma função com o nome "GetServerSideProps" e importar a tipagem dela de dentro do Next
 */
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // Essa função não é executada no browser e sim dentro de um servidor Node dentro do Next.
   const price = await stripe.prices.retrieve("price_1JnA6DGDGQLqJ9x27l6UvKYb", {
     // para ter acesso a todas as informações do produto.
@@ -53,7 +58,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       product
-    }
+    },
+    // Quanto tempo em minutos essa página será mantida. (sem ter que ser reconstruida)
+    revalidate: 60 * 60 * 24, // 24 horas
   }
 
 } 
