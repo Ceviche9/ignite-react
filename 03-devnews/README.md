@@ -142,3 +142,37 @@ export default function Home({product}: HomeProps) {
   )
 }
 ```
+## API routes.
+
+O API routes é uma ferramente do NextJs que permite a criação de APIs com o Next. Qualquer arquivo criado dentro da pasta `pages/api` é mapeado para /api/* e será tratado como um  endpoint da API em vez de uma página.
+
+Ex: Imagine que o arquivo abaixo existe em `pages/api/index.ts`
+
+```tsx
+export default function handler(req, res) {
+  res.status(200).json({ name: 'John Doe' })
+}
+```
+
+Ao acessar a rota `[http://localhost:3000/api/](http://localhost:3000/api/)` seria retornado um JSON com o status code 200. Essa API só é "montada" quando alguma requisição é feita por essa rota.
+
+## Next-Auth
+
+O Next-auth permite que de uma forma rápida, simples e segura, o desenvolvedor adicione um sistema de autenticação pelo o front-end de sua aplicação NextJs. Como o Next possui um servidor NodeJs próprio, as informações do usuário não estão expostas no front.
+
+Para criar uma estratégia de autenticação é preciso criar um arquivo com o nome `[...nextauth].ts` no caminho `pages/api/auth`. Dessa forma, uma rota será criada para fazer a autenticação do usuário. No caso dessa aplicação o arquivo ficou configurado da seguinte forma:
+
+```tsx
+import NextAuth from "next-auth"
+import Providers from "next-auth/providers"
+
+export default NextAuth({
+  providers: [
+    Providers.GitHub({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      scope: "read:user"
+    }),
+  ],
+})
+```
