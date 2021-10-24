@@ -1,34 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Estrutura de uma aplicação NextJs
 
-## Getting Started
+As rotas da aplicação ficam todas dentro da pasta "/src/pages", esta pasta não pode ser renomeada e ela só pode está em dois lugares: na raiz do projeto ou dentro de uma pasta chamada "src". Dentro dela, o arquivo que tiver o nome "index" será a rota inicial da aplicação.
 
-First, run the development server:
+Também é possível notar que, dentro desta pasta, existe os arquivos _app.tsx e _document.tsx, o _document.tsx não é criado por padrão pelo template do Create Next-app, porem é de suma importância. 
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+O NextJs, por padrão, já vem com um sistema de "roteamento", ou seja, as rotas das aplicação já são construídas automaticamente ao criar arquivos dentro da pasta "pages", portanto, caso o desenvolvedor queira criar algo que irá repetir em várias páginas da aplicação ou criar um contexto global, ele terá que utilizar o arquivo _app.tsx, que fica "em volta" de toda aplicação, se comporta de uma forma bem semelhante ao app.tsx no CRA. Quando uma página é acessada no NextJs, ele acessa os páginas e os componentes por dentro do _App.tsx, esse arquivo é recarregado toda vez que usuário troca de página, ou quando um estado é modificado.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Já o arquivo _document.tsx, só é carregado uma vez, que é quando o usuário acessa a aplicação, esse arquivo se comporta da mesma forma que o index.html que fica dentro da pasta "public" no CRA.
