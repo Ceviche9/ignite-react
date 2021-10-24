@@ -7,3 +7,47 @@ Também é possível notar que, dentro desta pasta, existe os arquivos _app.tsx 
 O NextJs, por padrão, já vem com um sistema de "roteamento", ou seja, as rotas das aplicação já são construídas automaticamente ao criar arquivos dentro da pasta "pages", portanto, caso o desenvolvedor queira criar algo que irá repetir em várias páginas da aplicação ou criar um contexto global, ele terá que utilizar o arquivo _app.tsx, que fica "em volta" de toda aplicação, se comporta de uma forma bem semelhante ao app.tsx no CRA. Quando uma página é acessada no NextJs, ele acessa os páginas e os componentes por dentro do _App.tsx, esse arquivo é recarregado toda vez que usuário troca de página, ou quando um estado é modificado.
 
 Já o arquivo _document.tsx, só é carregado uma vez, que é quando o usuário acessa a aplicação, esse arquivo se comporta da mesma forma que o index.html que fica dentro da pasta "public" no CRA.
+
+### _document.tsx
+
+```ts
+import Document , {Html, Head, Main, NextScript} from 'next/document'
+
+export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet"/> 
+          <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript/>
+        </body>
+      </Html>
+    )
+  }
+}
+```
+### _app.tsx
+
+```ts
+import {AppProps} from 'next/app'
+
+import '../../styles/global.scss'
+import { Header } from '../components/Header'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Header />
+      <Component {...pageProps} />
+    </>
+  )
+}
+
+export default MyApp
+```
