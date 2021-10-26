@@ -1,5 +1,9 @@
+import {query as q} from 'faunadb'
+
 import NextAuth from "next-auth"
 import Providers from "next-auth/providers"
+
+import {fauna} from '../../../services/fauna'
 
 export default NextAuth({
   providers: [
@@ -9,4 +13,44 @@ export default NextAuth({
       scope: "read:user"
     }),
   ],
+  // Callbacks are asynchronous functions you can use to control what happens when an action is performed.
+  // https://next-auth.js.org/configuration/callbacks
+  callbacks: {
+    async signIn(user, account, profile ) {
+      try {
+        const {email} = user
+        
+        await fauna.query(
+          // FQL +> Fauna query language
+
+          q.If( // Se
+            q.Not( // Não
+              q.Exists( // Existe
+                q.Match( // Um usuário que tenha esse email
+                  q.Index('user_by_email'),
+                  q.Casefold(user.email)
+                )
+              )
+            ),
+            q.Create(
+              q.Collection('users'),
+              {data: {email}}
+            ), // Else
+            q.Get(
+              q.Match(
+                q.Index('user_by_email'),
+                q.Casefold(user.email)
+            )
+          )
+        )
+        )
+
+      } catch(err) {
+        console.log(err)
+        return false
+      }
+      
+      return true
+    }
+  }
 })
