@@ -156,7 +156,7 @@ export default function handler(req, res) {
 
 Ao acessar a rota `[http://localhost:3000/api/](http://localhost:3000/api/)` seria retornado um JSON com o status code 200. Essa API só é "montada" quando alguma requisição é feita por essa rota.
 
-## Importante:
+## Importante
 
 Os unicos "locais seguros" dentro do NextJs que podem ser utilizados para executar métodos que utilizam as variáveis de ambientes ou necessitam de um certo nível de segurança são: 
 
