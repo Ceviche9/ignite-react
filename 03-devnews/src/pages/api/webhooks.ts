@@ -1,10 +1,12 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { NextApiRequest, NextApiResponse } from "next";
 
-import {Readable} from 'stream'
+import {Readable} from 'stream';
 
 import Stripe from "stripe";
-import {stripe} from '../../services/stripe'
+import {stripe} from '../../services/stripe';
+
+import { saveSubscription } from "./_lib/manageSubscription";
 
 // As informações que vem do webhook do stripe vem em formato de stream
 // A função abaixo pega os dados desse streaming e armazena em um array.
@@ -52,7 +54,30 @@ export default async (req: NextApiRequest , res: NextApiResponse ) => {
     const {type} = event
 
     if(relevantEvents.has(type)) {
-      console.log("🚀 ~ file: webhooks.ts ~ line 55 ~ type", event)
+      try {
+        // Expressão => condição
+        // case => valor
+        switch (type) {
+          // caso o valor do type seja 'checkout.session.completed'
+          case 'checkout.session.completed':
+
+            const checkoutSession = event.data.object as Stripe.Checkout.Session
+
+            await saveSubscription(
+              checkoutSession.subscription.toString(),
+              checkoutSession.customer.toString()
+            )
+
+            break;
+          //Instruções executadas quando o valor da expressão é diferente de todos os cases
+          default:
+            throw new Error('Unhandled event')
+        }
+      } catch(err) {
+        // O correto seria retornar alguma mensagem ao usuário avisando que deu um erro.
+        res.json({error: 'webhook handler fail'})
+        return
+      }
     }
       
     res.json({receivedk: true})
