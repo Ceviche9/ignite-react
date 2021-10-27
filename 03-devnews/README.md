@@ -156,6 +156,16 @@ export default function handler(req, res) {
 
 Ao acessar a rota `[http://localhost:3000/api/](http://localhost:3000/api/)` seria retornado um JSON com o status code 200. Essa API só é "montada" quando alguma requisição é feita por essa rota.
 
+## Importante:
+
+Os unicos "locais seguros" dentro do NextJs que podem ser utilizados para executar métodos que utilizam as variáveis de ambientes ou necessitam de um certo nível de segurança são: 
+
+- getServerSideProps().
+- getStaticProps().
+- API routes.
+
+Os métodos de SSR e SSG são executados no servidor Node dentro do NextJs e não no front, não permitindo que o usuário consiga acessar esses métodos ou dados. E as API routes também são executadas dentro desse servidor. Porém os métodos SSR e SSG só são executados no memento em que a página está sendo renderizada.
+
 ## Next-Auth
 
 O Next-auth permite que de uma forma rápida, simples e segura, o desenvolvedor adicione um sistema de autenticação pelo o front-end de sua aplicação NextJs. Como o Next possui um servidor NodeJs próprio, as informações do usuário não estão expostas no front.
