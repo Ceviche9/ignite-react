@@ -1,3 +1,20 @@
+# Fundamentos do NextJs
+
+NextJs é um framework para React. O que isso quer dizer? O React é uma biblioteca Javascript para construção de interfaces e o Next é considerado um framework pois adiciona várias funcionalidades em cima do React. 
+
+O NextJs auxilia no processo de indexação do google/outros motores, existem 3 formas de fazer essa indexação.
+
+- SSR - Server-Side Rendering
+
+Utilizado quando os dados do usuário que tá acessando a aplicação são utilizados em tempo real.
+
+- SSG - Static Site Generation
+
+Só pode ser utilizado em páginas que podem ser estáticas. Nesse caso o SSG é utilizado na home, para não ter que , toda vez que um usuário entrar na home page da plataforma, a aplicação fazer uma busca na API para trazer as informações sobre o preço da assinatura. Portanto, apenas a cada 24h, o servidor Node que está rodando no Next, faz essa busca na API do Stripe e atualiza a informação.
+
+- CSR - Client Side Rendering
+
+Utilizado em outros casos que também precisam de indexação.
 ## Estrutura de uma aplicação NextJs
 
 As rotas da aplicação ficam todas dentro da pasta "/src/pages", esta pasta não pode ser renomeada e ela só pode está em dois lugares: na raiz do projeto ou dentro de uma pasta chamada "src". Dentro dela, o arquivo que tiver o nome "index" será a rota inicial da aplicação.
