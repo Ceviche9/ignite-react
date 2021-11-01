@@ -1,3 +1,5 @@
+import React from 'react'
+import { ActiveLink } from '../ActiveLink'
 import {SingInButton} from '../SingInButton'
 
 import styles from './styles.module.scss'
@@ -8,8 +10,18 @@ export const Header = () => {
       <div className={styles.headerContent} >
         <h2>dev.news</h2>
         <nav>
-          <a className={styles.active} href="">Home</a>
-          <a href="">Posts</a>
+          <ActiveLink 
+            href="/"
+            activeClassName={styles.active}
+            >
+            <a className={styles.active}>Home</a>
+          </ActiveLink>
+          <ActiveLink 
+            href="/posts" 
+            activeClassName={styles.active}
+            prefetch>
+            <a>Posts</a>
+          </ActiveLink>
         </nav>
 
         <SingInButton />
