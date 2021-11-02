@@ -55,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       year: 'numeric'
     })
   }
-  
+
   return {
     props: {
       post

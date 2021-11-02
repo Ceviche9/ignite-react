@@ -41,8 +41,11 @@
       }
     }
 
-    span {
-      background: blue;
+    pre {
+      padding-left: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+      background: var(--gray-850);
     }
     
     &.previewContent {
