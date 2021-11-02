@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
   const { slug } = params
   
   // Para redirecionar um usuário dentro do ServerSide =>
-  if (!session.activeSubscription) {
+  if (!session?.activeSubscription) {
     return {
       redirect: {
         destination: '/',
@@ -55,7 +55,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       year: 'numeric'
     })
   }
-  // if(!session)
   
   return {
     props: {

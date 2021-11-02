@@ -21,7 +21,7 @@ export default function Posts({posts}: PostProps) {
           {posts.map((post) => (
             <Link 
               key={post.slug}  
-              href={`/posts/${post.slug}`}
+              href={`/posts/preview/${post.slug}`}
             >
               <a>
                 <time>{post.updatedAt}</time>
