@@ -16,6 +16,7 @@ export const ActiveLink = ({children, activeClassName, ...rest}: ActiveLinkProps
     <Link {...rest}>
       {
         // Utilizando o cloneElemente é possivel modificar o comportamento de um elemento filho.
+        // Nesse caso, uma classe está sendo adicionada ao componente.
         cloneElement(children, {
           className
         })}

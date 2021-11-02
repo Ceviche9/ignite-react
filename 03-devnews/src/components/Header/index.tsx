@@ -23,7 +23,6 @@ export const Header = () => {
             <a>Posts</a>
           </ActiveLink>
         </nav>
-
         <SingInButton />
       </div>
     </header>

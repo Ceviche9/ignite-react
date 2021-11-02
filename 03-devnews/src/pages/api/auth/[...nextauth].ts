@@ -16,6 +16,37 @@ export default NextAuth({
   // Callbacks are asynchronous functions you can use to control what happens when an action is performed.
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
+    async session(session) {
+      try{
+        // Para buscar se o usuário já tem uma inscrição ativa.
+        const userActiveSubscription = await fauna.query(
+          q.Get(
+            q.Intersection([
+              q.Match(
+                q.Index('subscription_by_user_ref'),
+                q.Select(
+                  "ref",
+                  q.Get(
+                    q.Match(
+                      q.Index('user_by_email'),
+                      q.Casefold(session.user.email)
+                    )
+                  )
+                )
+              ),
+              q.Match(
+                q.Index('subscription_by_status'),
+                "active"
+              )
+            ])
+          )
+        )
+
+        return {...session, activeSubscription: userActiveSubscription}
+      } catch(err) {
+        return {...session, activeSubscription: null}
+      }
+    },
     async signIn(user, account, profile ) {
       try {
         const {email} = user
