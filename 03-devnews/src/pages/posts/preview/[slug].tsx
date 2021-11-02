@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 import { RichText } from "prismic-dom";
 
-import { GetStaticProps } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { getPrismicClient } from "../../../services/prismic";
 
 import { PostContentProps } from '../../../protocols/postProtocols';
@@ -50,7 +50,8 @@ export default function PostPreview({ post }: PostContentProps) {
   )
 }
 
-export const getStaticPaths = () => {
+// Esse método mostra quais "caminhos" da aplicação vão ser gerados durante a build.
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
     fallback: 'blocking'
@@ -78,6 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       post
-    }
+    }, 
+    revalidate: 60 * 30 // 30 minutos. 
   }
 }
