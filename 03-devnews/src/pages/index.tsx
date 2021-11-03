@@ -26,8 +26,8 @@ export default function Home({product}: HomeProps) {
         <Image 
           src="/images/avatar.svg" 
           alt="Girl coding"
-          height={521}
-          width={336}
+          height={621}
+          width={436}
         />
       </main>
     </>
