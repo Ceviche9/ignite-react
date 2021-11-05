@@ -27,3 +27,4 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 ### Chapter III
 
 - [Aplicação web com NextJs](https://github.com/Ceviche9/ignite-react/tree/main/03-devnews)
+- [Desafio 01: Desenvolvendo apicação do zero](https://github.com/Ceviche9/spacetraveling)
