@@ -28,3 +28,6 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 - [Aplicação web com NextJs](https://github.com/Ceviche9/dev.news)
 - [Desafio 01: Desenvolvendo apicação do zero](https://github.com/Ceviche9/spacetraveling)
+- [Desafio 02: Adicionado features ao blog](https://github.com/Ceviche9/spacetraveling)
+
+### Chapter IV
