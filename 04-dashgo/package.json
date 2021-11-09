@@ -18,7 +18,6 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^1.5.3",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
     "eslint": "7",
