@@ -29,7 +29,8 @@ export default function SingIn() {
           bgColor="pink.500"
           size="lg"
           _hover={{
-            bgColor: "pink.600"
+            bgColor: "pink.700",
+            cursor: "pointer"
           }}
         >
           Entrar
