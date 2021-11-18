@@ -9,4 +9,5 @@ export type NavSectionProps = {
 export interface NavLinkProps extends ChakraLinkProps{
   icon: ElementType
   children: string
+  href: string
 }
