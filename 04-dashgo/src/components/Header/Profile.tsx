@@ -1,11 +1,14 @@
 import {Flex, Box, Text, Avatar} from "@chakra-ui/react"
+import { ProfileProps } from "./protocols/responsiveProtocols"
 
-export const Profile = () => {
+
+export const Profile = ({showProfileData = true}: ProfileProps) => {
   return(
     <Flex
     align="center"
   >
-    <Box
+   {showProfileData && (
+      <Box
       mr="4"
       textAlign="right"
     >
@@ -17,6 +20,7 @@ export const Profile = () => {
           ayotunde_sales@hotmail.com
       </Text>
     </Box>
+   )}
     <Avatar size="md" name="Tundê Cavalcante" src="https:github.com/ceviche9.png"/>
   </Flex>
   )
