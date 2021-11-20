@@ -25,6 +25,7 @@ export default function SingIn() {
   // Para pegar as mensagens de errors geradas
   const {errors} = formState
 
+  // Ao utilizar essa função dentro do handleSUbmit, os valores dos inputs serão enviados como parâmetro da função.
   const handleSingIn: SubmitHandler<SingInFormData> = async (values) => {
     await new Promise(resolve => setTimeout(resolve, 2000))
 
@@ -46,6 +47,7 @@ export default function SingIn() {
         p="8"
         borderRadius={8}
         flexDir="column"
+        // Quando o usuário enviar o formulário, as informações que ele digitou serão enviadas para validação.
         onSubmit={handleSubmit(handleSingIn)}
       >
         <Stack spacing="4">
@@ -53,7 +55,7 @@ export default function SingIn() {
             type="email" 
             name="email" 
             label="Email" 
-            // Para fazer a validação do campo
+            // Para fazer a validação do campo e armazenar os valores
             {...register("email")}
             error={errors.email}
           />
@@ -70,6 +72,7 @@ export default function SingIn() {
           mt="6" 
           bgColor="pink.500"
           size="lg"
+          // Para utilizar a animação de loading enquanto os dados são validados.
           isLoading={formState.isSubmitting}
           _hover={{
             bgColor: "pink.700",
