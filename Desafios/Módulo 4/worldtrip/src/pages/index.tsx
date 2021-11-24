@@ -4,6 +4,7 @@ import { Header } from "../components/Header"
 import { Options } from "../components/Options"
 
 import Image from "next/image"
+import { SwiperComponent } from '../components/Swiper/index';
 
 export default function Home() {
   return (
@@ -42,7 +43,7 @@ export default function Home() {
             mt="4"
             color="gray.50"
           >
-          Chegou a hora de tirar do papel a viagem que você sempre sonhou. 
+          Chegou a hora de tirar do papel a viagem que você <br/> sempre sonhou. 
           </Text>
         </Box>
         <Box
@@ -75,11 +76,14 @@ export default function Home() {
         Então escolha seu continente
       </Heading>
       <Flex
-        w="100%"
-        h="100%"
-        bgColor="pink.500"
+        justify="center"
+        align="center"
+        maxWidth={1140}
+        mt="6"
+        mx="auto"
+        p="2"
       >
-        <h1>TEste</h1>
+        <SwiperComponent />
       </Flex>
     </Flex>
   )
