@@ -11,6 +11,7 @@ export default function Home() {
     <Flex
       direction="column"
       h="100vh"
+      mb={25}
     >
       <Header/>
       <Flex
@@ -75,16 +76,17 @@ export default function Home() {
       >
         Então escolha seu continente
       </Heading>
-      <Flex
-        justify="center"
-        align="center"
-        maxWidth={1140}
-        mt="6"
-        mx="auto"
-        p="2"
+      <Box
+        paddingBottom={25}
       >
-        <SwiperComponent />
-      </Flex>
+        <Flex
+          maxWidth={1010}
+          mt="6"
+          mx="auto"
+        >
+          <SwiperComponent />
+        </Flex>
+      </Box>
     </Flex>
   )
 }
