@@ -9,56 +9,40 @@ import SwiperCore, { Navigation, Pagination } from 'swiper';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/bundle"
-
+import { ContinentProps } from "../../protocols/SwiperProtocols";
 
 SwiperCore.use([Navigation, Pagination]);
 
-export const SwiperComponent = () => {
+type SwiperCarrouselProps = {
+  data: ContinentProps[]
+}
+
+export const SwiperCarrousel = ({data}: SwiperCarrouselProps) => {
   return (
     <>
-      <Swiper pagination navigation>
-          <SwiperSlide>
-            <Flex
-              align="center"
-              justify="center"
-              direction="column"
-              h={450}
-              backgroundImage="url('/images/Europa.svg')"
-              backgroundPosition="center"
-              backgroundRepeat="no-repeat"
-            >
-              <Heading color="white">Europa</Heading>
-              <Text color="white" fontSize="2xl">O continente mais antigo.</Text>
-            </Flex>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Flex
-              align="center"
-              justify="center"
-              direction="column"
-              h={450}
-              backgroundImage="url('/images/Europa.svg')"
-              backgroundPosition="center"
-              backgroundRepeat="no-repeat"
-            >
-              <Heading color="white">Europa</Heading>
-              <Text color="white" fontSize="2xl">O continente mais antigo.</Text>
-            </Flex>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Flex
-              align="center"
-              justify="center"
-              direction="column"
-              h={450}
-              backgroundImage="url('/images/Europa.svg')"
-              backgroundPosition="center"
-              backgroundRepeat="no-repeat"
-            >
-              <Heading color="white">Europa</Heading>
-              <Text color="white" fontSize="2xl">O continente mais antigo.</Text>
-            </Flex>
-          </SwiperSlide>
+      <Swiper 
+        pagination 
+        navigation
+      >
+        {data.map(continent => {
+          return (
+            <SwiperSlide key={continent.id}>
+                <Flex
+                  align="center"
+                  justify="center"
+                  direction="column"
+                  h={480}
+                  backgroundImage={continent.bg ? `url('/images/Country/${continent.bg}')` : null}
+                  backgroundPosition="center"
+                  backgroundRepeat="no-repeat"
+                  backgroundSize="cover"
+                >
+                  <Heading color="white">{continent.title}</Heading>
+                  <Text color="white" fontSize="2xl">{continent.description}</Text>
+                </Flex>
+              </SwiperSlide>
+          )
+        })}
       </Swiper>
     </>
   )

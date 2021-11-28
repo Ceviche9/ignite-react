@@ -4,9 +4,19 @@ import { Header } from "../components/Header"
 import { Options } from "../components/Options"
 
 import Image from "next/image"
-import { SwiperComponent } from '../components/Swiper/index';
+import { SwiperCarrousel } from '../components/Swiper/index';
+import { GetStaticProps } from "next";
 
-export default function Home() {
+
+import database from "../../data/database.json"
+import { ContinentProps } from "../protocols/SwiperProtocols";
+
+
+type HomeProps = {
+  continents: ContinentProps[]
+}
+
+export default function Home({continents}: HomeProps) {
   return (
     <Flex
       direction="column"
@@ -30,7 +40,6 @@ export default function Home() {
           >
             <Heading
               fontWeight="500"
-              mb="4"
             >
               5 Continentes,
             </Heading>
@@ -41,7 +50,7 @@ export default function Home() {
             </Heading>
           </Box>
           <Text
-            mt="4"
+            mt="3"
             color="gray.50"
           >
           Chegou a hora de tirar do papel a viagem que você <br/> sempre sonhou. 
@@ -80,13 +89,26 @@ export default function Home() {
         paddingBottom={25}
       >
         <Flex
-          maxWidth={1010}
+          maxWidth={1310}
+          paddingX="10"
           mt="6"
           mx="auto"
         >
-          <SwiperComponent />
+          <SwiperCarrousel data={continents}
+          />
         </Flex>
       </Box>
     </Flex>
   )
+}
+
+
+export const getStaticProps: GetStaticProps = async () => {
+  const continents: ContinentProps[] = database.continents
+
+  return {
+    props: {
+      continents
+    }
+  }
 }

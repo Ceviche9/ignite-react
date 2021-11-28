@@ -1,0 +1,18 @@
+
+.swiper-pagination-bullet {
+  width: 16px !important;
+  height: 16px !important;
+  background: #999999 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffba08 !important;
+}
+
+.swiper-button-prev:after,
+.swiper-container-rtl .swiper-button-next:after,
+.swiper-button-next:after,
+.swiper-container-rtl .swiper-button-prev:after {
+  color: #ffba08 !important;
+}

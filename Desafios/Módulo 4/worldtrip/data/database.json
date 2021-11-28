@@ -1,0 +1,366 @@
+{
+  "continents": [
+    {
+      "id": 1,
+      "title": "Europa",
+      "path": "europe",
+      "description": "O continente mais antigo",
+      "about": "A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península ocidental da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de águas dos montes Urais, o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste.",
+      "bg": "europe.jpg",
+      "totalCountries": 50,
+      "totalLanguages": 50
+    },
+    {
+      "id": 2,
+      "title": "Ásia",
+      "path": "asia",
+      "description": "O maior continente",
+      "about": "A Ásia é o maior dos continentes, tanto em área como em população. Abrange um terço das partes sólidas da superfície da Terra e é responsável por abrigar quase três quintos da população mundial.",
+      "bg": "asia.jpg",
+      "totalCountries": 50,
+      "totalLanguages": 50
+    },
+    {
+      "id": 3,
+      "title": "América do Norte",
+      "path": "north-america",
+      "description": "O novo mundo",
+      "about": "A América do Norte é um subcontinente que compreende a porção setentrional do continente americano.",
+      "bg": "northamerica.jpg",
+      "totalCountries": 50,
+      "totalLanguages": 50
+    },
+    {
+      "id": 4,
+      "title": "América do Sul",
+      "path": "south-america",
+      "description": "A maior biodiversidade do mundo",
+      "about": "A América do Sul é um continente que compreende a porção meridional da América. Também é considerada um subcontinente do continente americano. A sua extensão é de 17 819 100 km², abrangendo 12% da superfície terrestre e 6% da população mundial.",
+      "bg": "southamerica.jpg",
+      "totalCountries": 50,
+      "totalLanguages": 50
+    },
+    {
+      "id": 5,
+      "title": "África",
+      "path": "africa",
+      "description": "As selvas mais perigosas do mundo",
+      "about": "A África é o terceiro continente mais extenso com cerca de 30 milhões de quilômetros quadrados, cobrindo 20,3% da área total da terra firme do planeta. É o segundo continente mais populoso da Terra com cerca de um bilhão de pessoas, representando cerca de um sétimo da população mundial, e 54 países independentes.",
+      "bg": "africa.jpg",
+      "totalCountries": 50,
+      "totalLanguages": 50
+    },
+    {
+      "id": 6,
+      "title": "Oceania",
+      "path": "oceania",
+      "description": "O continente mais novo",
+      "about": "Oceania ou Oceânia é uma região geográfica composta por vários grupos de ilhas do oceano Pacífico. O termo Oceania foi criado em 1831 pelo explorador francês Dumont d'Urville.",
+      "bg": "oceania.jpg",
+      "totalCountries": 50,
+      "totalLanguages": 50
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "name": "Londres",
+      "bg": "london.png",
+      "country": {
+        "flag": "unitedkingdom.png",
+        "name": "Reino Unido"
+      },
+      "continentId": 1
+    },
+    {
+      "id": 2,
+      "name": "Paris",
+      "bg": "paris.png",
+      "country": {
+        "flag": "france.png",
+        "name": "França"
+      },
+      "continentId": 1
+    },
+    {
+      "id": 3,
+      "name": "Roma",
+      "bg": "rome.png",
+      "country": {
+        "flag": "italy.png",
+        "name": "Itália"
+      },
+      "continentId": 1
+    },
+    {
+      "id": 4,
+      "name": "Praga",
+      "bg": "praga.png",
+      "country": {
+        "flag": "czechrepublic.png",
+        "name": "República Tcheca"
+      },
+      "continentId": 1
+    },
+    {
+      "id": 5,
+      "name": "Amsterdã",
+      "bg": "amsterdan.png",
+      "country": {
+        "flag": "netherlands.png",
+        "name": "Holanda"
+      },
+      "continentId": 1
+    },
+    {
+      "id": 6,
+      "name": "Londres",
+      "bg": "london.png",
+      "country": {
+        "flag": "unitedkingdom.png",
+        "name": "Reino Unido"
+      },
+      "continentId": 2
+    },
+    {
+      "id": 7,
+      "name": "Paris",
+      "bg": "paris.png",
+      "country": {
+        "flag": "france.png",
+        "name": "França"
+      },
+      "continentId": 2
+    },
+    {
+      "id": 8,
+      "name": "Roma",
+      "bg": "rome.png",
+      "country": {
+        "flag": "italy.png",
+        "name": "Itália"
+      },
+      "continentId": 2
+    },
+    {
+      "id": 9,
+      "name": "Praga",
+      "bg": "praga.png",
+      "country": {
+        "flag": "czechrepublic.png",
+        "name": "República Tcheca"
+      },
+      "continentId": 2
+    },
+    {
+      "id": 10,
+      "name": "Amsterdã",
+      "bg": "amsterdan.png",
+      "country": {
+        "flag": "netherlands.png",
+        "name": "Holanda"
+      },
+      "continentId": 2
+    },
+    {
+      "id": 11,
+      "name": "Londres",
+      "bg": "london.png",
+      "country": {
+        "flag": "unitedkingdom.png",
+        "name": "Reino Unido"
+      },
+      "continentId": 3
+    },
+    {
+      "id": 12,
+      "name": "Paris",
+      "bg": "paris.png",
+      "country": {
+        "flag": "france.png",
+        "name": "França"
+      },
+      "continentId": 3
+    },
+    {
+      "id": 13,
+      "name": "Roma",
+      "bg": "rome.png",
+      "country": {
+        "flag": "italy.png",
+        "name": "Itália"
+      },
+      "continentId": 3
+    },
+    {
+      "id": 14,
+      "name": "Praga",
+      "bg": "praga.png",
+      "country": {
+        "flag": "czechrepublic.png",
+        "name": "República Tcheca"
+      },
+      "continentId": 3
+    },
+    {
+      "id": 15,
+      "name": "Amsterdã",
+      "bg": "amsterdan.png",
+      "country": {
+        "flag": "netherlands.png",
+        "name": "Holanda"
+      },
+      "continentId": 3
+    },
+    {
+      "id": 16,
+      "name": "Londres",
+      "bg": "london.png",
+      "country": {
+        "flag": "unitedkingdom.png",
+        "name": "Reino Unido"
+      },
+      "continentId": 4
+    },
+    {
+      "id": 17,
+      "name": "Paris",
+      "bg": "paris.png",
+      "country": {
+        "flag": "france.png",
+        "name": "França"
+      },
+      "continentId": 4
+    },
+    {
+      "id": 18,
+      "name": "Roma",
+      "bg": "rome.png",
+      "country": {
+        "flag": "italy.png",
+        "name": "Itália"
+      },
+      "continentId": 4
+    },
+    {
+      "id": 19,
+      "name": "Praga",
+      "bg": "praga.png",
+      "country": {
+        "flag": "czechrepublic.png",
+        "name": "República Tcheca"
+      },
+      "continentId": 4
+    },
+    {
+      "id": 20,
+      "name": "Amsterdã",
+      "bg": "amsterdan.png",
+      "country": {
+        "flag": "netherlands.png",
+        "name": "Holanda"
+      },
+      "continentId": 4
+    },
+    {
+      "id": 21,
+      "name": "Londres",
+      "bg": "london.png",
+      "country": {
+        "flag": "unitedkingdom.png",
+        "name": "Reino Unido"
+      },
+      "continentId": 5
+    },
+    {
+      "id": 22,
+      "name": "Paris",
+      "bg": "paris.png",
+      "country": {
+        "flag": "france.png",
+        "name": "França"
+      },
+      "continentId": 5
+    },
+    {
+      "id": 23,
+      "name": "Roma",
+      "bg": "rome.png",
+      "country": {
+        "flag": "italy.png",
+        "name": "Itália"
+      },
+      "continentId": 5
+    },
+    {
+      "id": 24,
+      "name": "Praga",
+      "bg": "praga.png",
+      "country": {
+        "flag": "czechrepublic.png",
+        "name": "República Tcheca"
+      },
+      "continentId": 5
+    },
+    {
+      "id": 25,
+      "name": "Amsterdã",
+      "bg": "amsterdan.png",
+      "country": {
+        "flag": "netherlands.png",
+        "name": "Holanda"
+      },
+      "continentId": 5
+    },
+    {
+      "id": 26,
+      "name": "Londres",
+      "bg": "london.png",
+      "country": {
+        "flag": "unitedkingdom.png",
+        "name": "Reino Unido"
+      },
+      "continentId": 6
+    },
+    {
+      "id": 27,
+      "name": "Paris",
+      "bg": "paris.png",
+      "country": {
+        "flag": "france.png",
+        "name": "França"
+      },
+      "continentId": 6
+    },
+    {
+      "id": 28,
+      "name": "Roma",
+      "bg": "rome.png",
+      "country": {
+        "flag": "italy.png",
+        "name": "Itália"
+      },
+      "continentId": 6
+    },
+    {
+      "id": 29,
+      "name": "Praga",
+      "bg": "praga.png",
+      "country": {
+        "flag": "czechrepublic.png",
+        "name": "República Tcheca"
+      },
+      "continentId": 6
+    },
+    {
+      "id": 30,
+      "name": "Amsterdã",
+      "bg": "amsterdan.png",
+      "country": {
+        "flag": "netherlands.png",
+        "name": "Holanda"
+      },
+      "continentId": 6
+    }
+  ]
+}
