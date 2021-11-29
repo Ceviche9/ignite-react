@@ -27,7 +27,7 @@ export default function Home({continents}: HomeProps) {
       <Flex
         align="center"
         justify="space-between"
-        px={32}
+        px={36}
         w="100%"
         h={335}
         backgroundImage="url('/images/Background.svg')"

@@ -3,6 +3,8 @@ import React, { useRef, useState } from "react";
 
 import {Flex, Heading, Text} from "@chakra-ui/react"
 
+import LInk from "next/link"
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 
@@ -27,20 +29,25 @@ export const SwiperCarrousel = ({data}: SwiperCarrouselProps) => {
         {data.map(continent => {
           return (
             <SwiperSlide key={continent.id}>
-                <Flex
-                  align="center"
-                  justify="center"
-                  direction="column"
-                  h={480}
-                  backgroundImage={continent.bg ? `url('/images/Country/${continent.bg}')` : null}
-                  backgroundPosition="center"
-                  backgroundRepeat="no-repeat"
-                  backgroundSize="cover"
-                >
-                  <Heading color="white">{continent.title}</Heading>
-                  <Text color="white" fontSize="2xl">{continent.description}</Text>
-                </Flex>
-              </SwiperSlide>
+              <LInk href={continent.path}>
+                  <Flex
+                    align="center"
+                    justify="center"
+                    direction="column"
+                    h={480}
+                    backgroundImage={continent.bg ? `url('/images/Continent/${continent.bg}')` : null}
+                    backgroundPosition="center"
+                    backgroundRepeat="no-repeat"
+                    backgroundSize="cover"
+                    _hover={{
+                      cursor: "pointer"
+                    }}
+                  >
+                    <Heading color="white">{continent.title}</Heading>
+                    <Text color="white" fontSize="2xl">{continent.description}</Text>
+                  </Flex>
+              </LInk>
+            </SwiperSlide>
           )
         })}
       </Swiper>
