@@ -1,5 +1,5 @@
 
-import {Flex, Text, Box, Heading, Stack, HStack} from "@chakra-ui/react"
+import {Flex, Text, Box, Heading, Stack, HStack, Grid, GridItem, Image} from "@chakra-ui/react"
 import Link from "next/link"
 
 import {Header} from "../components/Header"
@@ -10,7 +10,8 @@ import database from "../../data/database.json"
 
 import {ContinentPathProps} from "../protocols/ContinentProtocols"
 
-export default function ContinentPath({continent}: ContinentPathProps) {
+export default function ContinentPath({continent, countries}: ContinentPathProps) {
+  
   return(
     <Flex
       direction="column"
@@ -21,9 +22,7 @@ export default function ContinentPath({continent}: ContinentPathProps) {
           <Header/> 
         </a>
       </Link>
-      <Stack
-        spacing="24"
-      >
+      <Stack spacing="50px" >
         <Flex
           align="flex-end"
           justify="flex-start"
@@ -55,12 +54,12 @@ export default function ContinentPath({continent}: ContinentPathProps) {
           </Box>
           <HStack
             justify="center"
-            paddingBottom="6"
+            paddingBottom="7"
             spacing="20"
             flex={1}
-            color="gray.500"
+            color="gray.600"
             fontWeight="500"
-            fontSize="2xl"
+            fontSize="xl"
           >
             <Box
               align="center"
@@ -78,9 +77,79 @@ export default function ContinentPath({continent}: ContinentPathProps) {
               align="center"
             >
               <Text color="yellow.400" fontSize="4xl" fontWeight="600">27</Text>
-              <Text>Cidades</Text>
+              <Text>Cidades + 100...</Text>
             </Box>
           </HStack>
+        </Flex>
+        <Text 
+          paddingLeft={28}
+          fontWeight="500" 
+          fontSize="4xl" 
+          color="gray.600"
+        >
+          Cidades + 100
+        </Text>
+        <Flex
+          p="5"
+          align="center"
+          justify="center"
+        >
+        <Grid
+          h='200px'
+          templateRows='repeat(2, 1fr)'
+          templateColumns='repeat(4, 1fr)'
+          gap={9}
+        >
+          {countries.map(data => {
+            return (
+              <GridItem 
+                key={data.id}
+                _hover={{
+                  cursor: "pointer"
+                }}
+              >
+                <Flex
+                  flexDirection="column"
+                  borderBottomWidth="thin"
+                  borderColor="yellow.400"
+                >
+                  <Image
+                    width="100%"
+                    height={173}
+                    src={`/images/country/${data.bg}`} 
+                    alt="country"
+                  />
+                  <Box
+                    pt="4"
+                    px="5"
+                    w={256}
+                    h={94}
+                    borderColor="yellow.400"
+                    borderLeftWidth="thin"
+                    borderRightWidth="thin"
+                  >
+                    <HStack
+                      justify="space-between"
+                    >
+                      <Stack spacing="1">
+                        <Text fontWeight="600" color="gray.700">{data.name}</Text>
+                        <Text fontWeight="400" color="gray.400">{data.country.name}</Text>
+                      </Stack>
+                      <Image
+                        objectFit="cover"
+                        w="30px"
+                        h="30px"
+                        borderRadius="50%"
+                        src={`/images/flag/${data.country.flag}`}
+                        alt="flag"
+                      />
+                    </HStack>
+                  </Box>
+                </Flex>
+              </GridItem>
+            )
+          })}
+        </Grid>
         </Flex>
       </Stack>
     </Flex>
@@ -91,6 +160,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const {path} = context.params
 
   const continent = database.continents.find(data => path === data.path)
+
+  const countries = database.cities
 
   if (!continent) {
     return {
@@ -103,7 +174,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   return {
     props: {
-      continent
+      continent,
+      countries
     }
   }
 }

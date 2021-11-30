@@ -1,3 +1,14 @@
+export type CityProps = {
+  id: number;
+  name: string;
+  bg: string;
+  country: {
+    flag: string;
+    name: string;
+  };
+  continentId: number;
+}
+
 export type ContinentPathProps = {
   continent: {
     id: number;
@@ -8,5 +19,6 @@ export type ContinentPathProps = {
     bg: string;
     totalCountries: number;
     totalLanguages: number;
-}
+  },
+  countries: CityProps[]
 }
