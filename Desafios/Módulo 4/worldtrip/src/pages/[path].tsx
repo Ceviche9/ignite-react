@@ -34,6 +34,7 @@ export default function ContinentPath({continent}: ContinentPathProps) {
           backgroundImage={`url('/images/Path/${continent.bg}')`}
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
+          backgroundSize="cover"
         >
           <Box>
             <Heading color="white">{continent.title}</Heading>
