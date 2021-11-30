@@ -32,3 +32,4 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 ### Chapter IV
 - [Contruindo interfaces do futuro](https://github.com/Ceviche9/ignite-react/tree/main/04-dashgo)
+- [Desafio 01: Interface com Chakra UI](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%204/worldtrip)
