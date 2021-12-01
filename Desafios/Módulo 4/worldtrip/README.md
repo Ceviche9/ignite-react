@@ -1,13 +1,6 @@
-<img alt="Ignite" src="https://user-images.githubusercontent.com/83431609/143978286-e0048b51-47e2-4b67-a94a-6dd52c7c9ea7.png">
-<h2 align="center">
-  Ignite - Trilha ReactJS
-</h2>
-<p align="center">
-  <a href="https://www.figma.com/file/8QAkMs3BddatXn2fFseyu4/Desafio-1-M%C3%B3dulo-4-ReactJS/duplicate">Template da aplicação</a>
-</p>
-<p align="center">
-  Desafio: Interface com Chakra UI
-</p>
+## Ignite - Trilha ReactJS
+
+![worldtrip](https://user-images.githubusercontent.com/83431609/144253078-ea385ba4-067c-4361-9b46-e58ae9f175f8.png)
 
 ## 🚀 Como executar
 
