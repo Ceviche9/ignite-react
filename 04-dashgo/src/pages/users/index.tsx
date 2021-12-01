@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 import {Box,
        Flex, 
        Heading, 
@@ -25,6 +27,12 @@ export default function UsersList() {
     base: false,
     lg: true
   })
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/users')
+      .then(response => response.json())
+        .then(data => console.log(data))
+  }, [])
 
   return(
     <Box>
