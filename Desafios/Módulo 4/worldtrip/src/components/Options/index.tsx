@@ -1,8 +1,94 @@
-import {Flex, Text} from "@chakra-ui/react"
+import {Flex, Text, HStack, Heading} from "@chakra-ui/react"
 
 import Image from "next/image"
 
-export const Options = () => {
+import { ComponentProps } from "../../protocols/ComponentsProtocols"
+
+export const Options = ({isMobile}: ComponentProps) => {
+
+  if(isMobile) {
+    return(
+      <Flex
+        direction="column"
+        align="center"
+        justify="space-evenly"
+      >
+        <HStack 
+          spacing="100px"
+        >
+          <HStack
+            textAlign="center"
+            color="gray.500"
+            fontWeight="500"
+            _hover={{
+              color: "gray.800",
+              fontWeight: "500",
+              cursor: "pointer"
+            }}
+          >
+            <Text fontSize="6xl" color="yellow.400" mb="6">.</Text>
+            <Text fontSize="2xl">Vida noturna</Text>
+          </HStack>
+          <HStack
+            spacing="1"
+            color="gray.500"
+            fontWeight="500"
+            _hover={{
+              color: "gray.800",
+              fontWeight: "500",
+              cursor: "pointer"
+            }}
+          >
+            <Text fontSize="6xl" color="yellow.400" mb="6">.</Text>
+            <Text fontSize="2xl">Praia</Text>
+          </HStack>
+        </HStack>
+        <HStack spacing="100px">
+          <HStack
+            spacing="1"
+            color="gray.500"
+            fontWeight="500"
+            _hover={{
+              color: "gray.800",
+              fontWeight: "500",
+              cursor: "pointer"
+            }}
+          >
+            <Text fontSize="6xl" color="yellow.400" mb="6">.</Text>
+            <Text fontSize="2xl">Moderno</Text>
+          </HStack>
+          <HStack
+            spacing="1"
+            color="gray.500"
+            fontWeight="500"
+            _hover={{
+              color: "gray.800",
+              fontWeight: "500",
+              cursor: "pointer"
+            }}
+          >
+            <Text fontSize="6xl" color="yellow.400" mb="6">.</Text>
+            <Text fontSize="2xl">Clássico</Text>
+          </HStack>
+        </HStack>
+        <HStack
+          spacing="1"
+          color="gray.500"
+          fontWeight="500"
+          _hover={{
+            color: "gray.800",
+            fontWeight: "500",
+            cursor: "pointer"
+          }}
+        >
+          <Text fontSize="6xl" color="yellow.400" mb="6">.</Text>
+          <Text fontSize="2xl">E mais...</Text>
+        </HStack>
+      </Flex>
+    )
+  }
+
+
   return(
     <Flex
       my="28"

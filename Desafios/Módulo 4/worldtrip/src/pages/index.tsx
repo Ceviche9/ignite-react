@@ -1,9 +1,9 @@
-import {Flex, Text, Box, Heading, Divider, Stack} from "@chakra-ui/react"
+import {Flex, Text, Box, Heading, Divider, Stack, useBreakpointValue} from "@chakra-ui/react"
 
 import { Header } from "../components/Header"
 import { Options } from "../components/Options"
+import {Banner} from "../components/Banner"
 
-import Image from "next/image"
 import { SwiperCarrousel } from '../components/Swiper/index';
 import { GetStaticProps } from "next";
 
@@ -17,6 +17,12 @@ type HomeProps = {
 }
 
 export default function Home({continents}: HomeProps) {
+  const isMobile = useBreakpointValue({
+    base: true,
+    lg: false
+  })
+
+
   return (
     <Flex
       direction="column"
@@ -27,52 +33,10 @@ export default function Home({continents}: HomeProps) {
       <Stack
         spacing="24"
       >
-        <Flex
-          align="center"
-          justify="space-between"
-          px={36}
-          w="100%"
-          h={335}
-          backgroundImage="url('/images/Background.svg')"
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-        >
-          <Box>
-            <Box
-              color="gray.50"
-            >
-              <Heading
-                fontWeight="500"
-              >
-                5 Continentes,
-              </Heading>
-              <Heading
-                fontWeight="500"
-              >
-                infinitas possibilidades.
-              </Heading>
-            </Box>
-            <Text
-              mt="3"
-              color="gray.50"
-            >
-            Chegou a hora de tirar do papel a viagem que você <br/> sempre sonhou. 
-            </Text>
-          </Box>
-          <Box
-            mt={32}
-          >
-            <Image 
-              width={417}
-              height={270}
-              src="/images/Airplane.svg" 
-              alt="Avião"
-            />
-          </Box>
-        </Flex>
+        <Banner isMobile={isMobile}/>
 
-        <Options />
-        
+        <Options isMobile={isMobile}/>
+
         <Divider my="2" borderColor="gray.900" w="16" alignSelf="center" border="23"/>
         
         <Stack>
