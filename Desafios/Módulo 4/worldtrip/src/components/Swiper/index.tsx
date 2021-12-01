@@ -8,17 +8,17 @@ import LInk from "next/link"
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/bundle"
-import { ContinentProps } from "../../protocols/SwiperProtocols";
 
-SwiperCore.use([Navigation, Pagination]);
+import { ContinentProps } from "../../protocols/SwiperProtocols";
 
 type SwiperCarrouselProps = {
   data: ContinentProps[],
   isMobile: boolean
 }
+
+SwiperCore.use([Navigation, Pagination]);
 
 export const SwiperCarrousel = ({data, isMobile}: SwiperCarrouselProps) => {
   return (
