@@ -27,11 +27,12 @@ export default function Home({continents}: HomeProps) {
     <Flex
       direction="column"
       h="100vh"
+      w="100%"
       mb={25}
     >
       <Header/> 
       <Stack
-        spacing="24"
+        spacing={["10px", "24"]}
       >
         <Banner isMobile={isMobile}/>
 
@@ -39,19 +40,15 @@ export default function Home({continents}: HomeProps) {
 
         <Divider my="2" borderColor="gray.900" w="16" alignSelf="center" border="23"/>
         
-        <Stack>
+        <Stack py="5">
           <Heading
+            as="h2"
+            fontSize={["2xl", "4xl"]}
             color="gray.600"
             fontWeight="500"
-            alignSelf="center"
+            textAlign="center"
           >
-            Vamos nessa ?
-          </Heading>
-          <Heading
-            color="gray.600"
-            fontWeight="500"
-            alignSelf="center"
-          >
+            Vamos nessa ? <br/>
             Então escolha seu continente
           </Heading>
           <Box
@@ -59,12 +56,11 @@ export default function Home({continents}: HomeProps) {
           >
             <Flex
               maxWidth={1310}
-              paddingX="10"
+              paddingX={["","10"]}
               mt="6"
               mx="auto"
             >
-              <SwiperCarrousel data={continents}
-              />
+              <SwiperCarrousel data={continents} isMobile={isMobile}/>
             </Flex>
           </Box>
         </Stack>

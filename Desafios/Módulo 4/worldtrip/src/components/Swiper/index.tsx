@@ -16,10 +16,11 @@ import { ContinentProps } from "../../protocols/SwiperProtocols";
 SwiperCore.use([Navigation, Pagination]);
 
 type SwiperCarrouselProps = {
-  data: ContinentProps[]
+  data: ContinentProps[],
+  isMobile: boolean
 }
 
-export const SwiperCarrousel = ({data}: SwiperCarrouselProps) => {
+export const SwiperCarrousel = ({data, isMobile}: SwiperCarrouselProps) => {
   return (
     <>
       <Swiper 
@@ -34,7 +35,7 @@ export const SwiperCarrousel = ({data}: SwiperCarrouselProps) => {
                     align="center"
                     justify="center"
                     direction="column"
-                    h={480}
+                    h={isMobile ? 350 : 480}
                     backgroundImage={continent.bg ? `url('/images/Continent/${continent.bg}')` : null}
                     backgroundPosition="center"
                     backgroundRepeat="no-repeat"
@@ -43,8 +44,8 @@ export const SwiperCarrousel = ({data}: SwiperCarrouselProps) => {
                       cursor: "pointer"
                     }}
                   >
-                    <Heading color="white">{continent.title}</Heading>
-                    <Text color="white" fontSize="2xl">{continent.description}</Text>
+                    <Heading color="white" fontSize={["2xl", "3xl"]}>{continent.title}</Heading>
+                    <Text color="white" fontSize={["xl","2xl"]}>{continent.description}</Text>
                   </Flex>
               </LInk>
             </SwiperSlide>
