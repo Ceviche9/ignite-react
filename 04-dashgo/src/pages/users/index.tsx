@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-
 import {Box,
        Flex, 
        Heading, 
@@ -22,33 +20,11 @@ import {Header} from '../../components/Header'
 import {Sidebar} from '../../components/Sidebar'
 import { Pagination } from '../../components/Pagination';
 
-import { useQuery } from "react-query"
-
 import Link from "next/link"
+import { useUsers } from "../../services/hooks/useUsers"
 
 export default function UsersList() {
-  const {data, isLoading, isError, isFetching} = useQuery('users', async () => {
-    const response = await fetch('http://localhost:3000/api/users')
-    const data = await response.json()
-
-    const users = data.users.map(user => {
-      return{
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric'
-        })
-      }
-    })
-    
-    return users
-  }, {
-    // Tempo que esses dados não precisão ser recarregados
-    staleTime: 1000 * 5 // 5 segundos
-  })
+  const {data, isLoading, isError, isFetching} = useUsers()
 
   const isWideVersion = useBreakpointValue({
     base: false,
