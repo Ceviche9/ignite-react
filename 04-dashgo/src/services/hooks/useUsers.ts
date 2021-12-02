@@ -7,9 +7,19 @@ type UserProps = {
   email: string
   createdAt: string
 }
+type GetUsersResponseProps = {
+  totalCount: number
+  users: UserProps[]
+}
 
-async function getUsers(): Promise<UserProps[]> {
-  const { data } = await api.get('/users')
+async function getUsers(page: number): Promise<GetUsersResponseProps> {
+  const { data, headers } = await api.get('/users', {
+    params: {
+      page,
+    }
+  })
+
+  const totalCount = Number(headers['x-total-count']);
 
   const users = data.users.map(user => {
     return{
@@ -24,11 +34,14 @@ async function getUsers(): Promise<UserProps[]> {
     }
   })
   
-  return users
+  return {
+    users,
+    totalCount
+  };
 }
 
-export function useUsers() {
-  return useQuery('users', getUsers, {
+export function useUsers(page: number) {
+  return useQuery(['users', page], () => getUsers(page), {
     // Tempo que esses dados não precisão ser recarregados
     staleTime: 1000 * 5 // 5 segundos
   })
