@@ -27,7 +27,7 @@ import { useQuery } from "react-query"
 import Link from "next/link"
 
 export default function UsersList() {
-  const {data, isLoading, isError} = useQuery('users', async () => {
+  const {data, isLoading, isError, isFetching} = useQuery('users', async () => {
     const response = await fetch('http://localhost:3000/api/users')
     const data = await response.json()
 
@@ -69,7 +69,19 @@ export default function UsersList() {
 
         <Box flex="1" borderRadius={8} bg="gray.800" p="8">
           <Flex mb="8" justify="space-between" align="center">
-            <Heading size="lg" fontWeight="normal">Usuários</Heading>
+            <Heading size="lg" fontWeight="normal">
+                Usuários
+                { !isLoading && isFetching && 
+                    <Spinner
+                    thickness='4px'
+                    speed='0.65s'
+                    emptyColor='gray.800'
+                    color='pink.500'
+                    size="sm" 
+                    ml="4"
+                  />
+                }
+            </Heading>
             <Link href="/users/create" passHref>
               <Button 
                 as="a" 
