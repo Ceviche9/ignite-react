@@ -45,6 +45,9 @@ export default function UsersList() {
     })
     
     return users
+  }, {
+    // Tempo que esses dados não precisão ser recarregados
+    staleTime: 1000 * 5 // 5 segundos
   })
 
   const isWideVersion = useBreakpointValue({

@@ -20,8 +20,8 @@ export function makeServer() {
     // Para gerar dados em massa
     factories: {
       user: Factory.extend({
-        name(i: number) {
-          return `Pessoa ${i + 1}`
+        name() {
+          return faker.name.findName()
         },
         email() {
           return faker.internet.email().toLocaleLowerCase();
