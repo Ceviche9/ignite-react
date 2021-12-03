@@ -43,7 +43,7 @@ export function makeServer() {
 
       // Para que retornar a lista  completa de usuários
       this.get('/users', function (schema, request) {
-        const {page = 1, per_page = 10} = request.queryParams
+        const {page = 1, per_page = 8} = request.queryParams
 
         const total = schema.all('user').length
 
@@ -59,6 +59,7 @@ export function makeServer() {
         )
 
       });
+      this.get('/users/:id');
       // Para criar usuários
       this.post('/users');
 
