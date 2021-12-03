@@ -5,6 +5,7 @@ import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup"
 
 import {Input} from '../components/Form/input'
+import { useRouter } from 'next/router'
 
 type SingInFormData = {
   email: string
@@ -18,6 +19,7 @@ const signInFormSchema = yup.object().shape({
 
 // const {errors} = formState
 export default function SingIn() {
+  const router = useRouter()
   const {register, handleSubmit, formState} = useForm({
     // Para fazer a validação do formulário
     resolver: yupResolver(signInFormSchema)
@@ -29,7 +31,7 @@ export default function SingIn() {
   const handleSingIn: SubmitHandler<SingInFormData> = async (values) => {
     await new Promise(resolve => setTimeout(resolve, 2000))
 
-    console.log(values)
+    router.push('/dashboard')
   }
 
   return (

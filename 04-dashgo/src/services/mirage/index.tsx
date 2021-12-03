@@ -1,4 +1,4 @@
-import {createServer, Factory, Model, Response} from "miragejs"
+import {createServer, Factory, Model, Response, ActiveModelSerializer} from "miragejs"
 import faker from "faker"
 
 type UserProps = {
@@ -9,7 +9,10 @@ type UserProps = {
 
 export function makeServer() {
   const server = createServer({
-
+    serializers: {
+      application: ActiveModelSerializer,
+    },
+    
     models: {
       /* Partial => indica que aquela variável não precisa conter todos
         os campos da Props

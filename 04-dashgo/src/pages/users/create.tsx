@@ -15,11 +15,16 @@ import {SubmitHandler, useForm} from "react-hook-form"
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup"
 
+import {useMutation} from "react-query"
+import { api } from '../../services/api'
+
 import {Header} from '../../components/Header'
 import {Sidebar} from '../../components/Sidebar'
 import {Input} from '../../components/Form/input'
 
 import Link from "next/link"
+import { queryClient } from '../../services/queryClient'
+import { useRouter } from 'next/router';
 
 type CreateUserFormDataProps = {
   name: string
@@ -41,17 +46,32 @@ const createUserFormSchema = yup.object().shape({
 })
 
 export default function CreateUser() {
+  const router = useRouter()
+  // Com o useMutation é possivel monitorar o estado desa chamada
+  const createUser = useMutation(async (user: CreateUserFormDataProps) => {
+    const response = await api.post('/users', {
+      user: {
+        ...user,
+        created_at: new Date()
+      }
+    })
+  }, {
+    // Para tornar as páginas inválidas (desatualizadas)
+    onSuccess: () => {
+      queryClient.invalidateQueries('users')
+    }
+  })
+
   const {register, handleSubmit, formState} = useForm({
     resolver: yupResolver(createUserFormSchema)
   })
   const {errors} = formState
 
   const handleCreateUser: SubmitHandler<CreateUserFormDataProps> = async (values) => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await createUser.mutateAsync(values)
 
-    console.log(values)
+    router.push('/users')
   }
-
 
   return(
     <Box>
