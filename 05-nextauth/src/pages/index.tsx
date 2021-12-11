@@ -1,7 +1,7 @@
 import {FormEvent, useContext, useState} from "react"
 
 import styles from '../../styles/Home.module.css'
-import { AuthContext } from "../contexts/AuthContext"
+import { AuthContext } from "../hooks/AuthContext"
 
 export default function Home() {
   const [email, setEmail] = useState('')
@@ -17,8 +17,8 @@ export default function Home() {
     }
 
     await signIn(data)
-  }
 
+  }
   return (
     <form  onSubmit={handleSubmit}  className={styles.container}>
       <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
