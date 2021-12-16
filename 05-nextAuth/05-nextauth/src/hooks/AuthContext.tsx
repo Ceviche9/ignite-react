@@ -1,10 +1,11 @@
 import {
   createContext,
   useContext,
+  useEffect,
   useState,
 } from "react";
 
-import {setCookie} from "nookies"
+import { setCookie, parseCookies} from "nookies"
 
 import Router from "next/router";
 
@@ -21,6 +22,18 @@ export const useAuth = () => useContext(AuthContext);
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>()
   const isAuthenticated = !!user
+
+  // Para recarregar as informações do usuário quando recarregar a página.
+  useEffect(() => {
+
+    // Para pegar o token armazenado dentro dos cookies.
+    const {'nextauth.token': token} = parseCookies()
+
+    if(token) {
+      api.get('/me').then(response => console.log(response))
+    }
+
+  }, [])
 
   async function signIn({email, password}: SignInCredentials) {
     try {
@@ -41,11 +54,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
         // PAra indicar quais caminhos terão acesso a esse cookie
         path: '/' // Informando que qualquer rota pode ter acesso.
       })
+
       setCookie(undefined, 'nextauth.refreshToken', refreshToken, {
         maxAge: 60 * 60 * 24 * 30,
         path: '/'
       })
 
+      // Se o usuário recarregar a tela, essas informações serão perdidas.
       setUser({
         email,
         permissions,
