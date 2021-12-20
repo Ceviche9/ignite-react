@@ -34,7 +34,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   // Para recarregar as informações do usuário quando recarregar a página.
   useEffect(() => {
-
     // Para pegar o token armazenado dentro dos cookies.
     const {'nextauth.token': token} = parseCookies()
 
