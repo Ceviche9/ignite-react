@@ -5,7 +5,7 @@ import {
   useState,
 } from "react";
 
-import { setCookie, parseCookies} from "nookies"
+import { setCookie, parseCookies, destroyCookie} from "nookies"
 
 import Router from "next/router";
 
@@ -17,6 +17,15 @@ export const AuthContext = createContext({} as AuthContextProps);
 
 
 export const useAuth = () => useContext(AuthContext);
+
+
+export function signOut()  { 
+  // Caso tenha algum erro com o token.
+  destroyCookie(undefined, 'nextauth.token')
+  destroyCookie(undefined, 'nextauth.refreshToken')
+
+  Router.push('/')
+}
 
 
 export function AuthProvider({ children }: AuthProviderProps) {
@@ -38,6 +47,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
           permissions,
           roles
         })
+      }).catch(() => {
+        signOut()
       })
     }
 
