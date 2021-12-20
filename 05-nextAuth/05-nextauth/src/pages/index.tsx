@@ -5,6 +5,7 @@ import {parseCookies} from "nookies"
 
 import styles from '../../styles/Home.module.css'
 import { AuthContext } from "../hooks/AuthContext"
+import { WithSSRGuest } from "../utils/WithSSRGuest"
 
 export default function Home() {
   const [email, setEmail] = useState('')
@@ -33,22 +34,9 @@ export default function Home() {
 }
 
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  // Como estamos utilizando o parseCookies no servidor precisamos passar o contexto como primeiro parametro.
-  const cookies = parseCookies(context)
-
-  // Caso o usuário já tenha um token ele será redirecionado.
-  if(cookies['nextauth.token']) {
-    return {
-      redirect: {
-        destination: '/dashboard',
-        permanent: false
-      }
-    }
-  }
+export const getServerSideProps: GetServerSideProps = WithSSRGuest( async (context) => {
 
   return{
     props: {}
   }
-
-}
+})
