@@ -18,6 +18,7 @@ export function WithSSRGuest<P>(fn: GetServerSideProps<P>) {
       }
     }
 
+    // Para apenas executar a função que foi enviada como parametro.
     return await fn(context)
   }
 }
