@@ -5,15 +5,11 @@ import { GetServerSideProps } from 'next';
 import { WithSSRAuth } from '../utils/WithSSRAuth';
 import { setUpAPIClient } from '../services/api';
 import { useCan } from '../hooks/useCan';
+import { Can } from '../components/Can';
 
 export default function Dashboard() {
   const {user} = useContext(AuthContext)
-
-  const userCanSeeMetrics = useCan({
-    permissions: ['metrics.list'],
-  })
-
-
+  
   useEffect(() => {
     api.get('/me')
       .then(response => console.log(response))
@@ -24,12 +20,11 @@ export default function Dashboard() {
     <>
       <h1>Dashboard: {user?.email}</h1>
 
-      {
-        userCanSeeMetrics && 
+      <Can permissions={['metrics.list']}>
         <div>
           Métricas
         </div>
-      }
+      </Can>
     </>
   )
 }
