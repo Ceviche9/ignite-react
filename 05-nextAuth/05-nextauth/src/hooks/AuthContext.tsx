@@ -14,14 +14,16 @@ import { AuthContextProps, AuthProviderProps, SignInCredentials, UserProps } fro
 
 export const AuthContext = createContext({} as AuthContextProps);
 
+let authChannel: BroadcastChannel
 
 export const useAuth = () => useContext(AuthContext);
-
 
 export function signOut()  { 
   // Caso tenha algum erro com o token.
   destroyCookie(undefined, 'nextauth.token')
   destroyCookie(undefined, 'nextauth.refreshToken')
+
+  authChannel.postMessage('signOut')
 
   Router.push('/')
 }
@@ -30,6 +32,23 @@ export function signOut()  {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>()
   const isAuthenticated = !!user
+
+  // O useEffect só roda do lado do browser e o authChannel também.
+  // https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API
+  useEffect(() => {
+    authChannel = new BroadcastChannel('auth')
+
+    authChannel.onmessage = (message) => {
+      switch (message.data) {
+        case 'signOut':
+          signOut()
+          break
+        default: 
+          break
+      }
+    }
+  }, [])
+
 
   // Para recarregar as informações do usuário quando recarregar a página.
   useEffect(() => {
@@ -97,6 +116,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     <AuthContext.Provider
       value={{
         signIn,
+        signOut,
         user,
         isAuthenticated
       }}

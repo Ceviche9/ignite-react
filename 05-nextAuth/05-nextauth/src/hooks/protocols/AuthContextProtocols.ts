@@ -12,7 +12,8 @@ export type SignInCredentials = {
 }
 
 export type AuthContextProps = {
-  signIn(credentials: SignInCredentials): Promise<void>;
+  signIn: (credentials: SignInCredentials) => Promise<void>;
+  signOut: () => void;
   user: UserProps;
   isAuthenticated: boolean;
 }
