@@ -19,8 +19,6 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 - [Desafio 01: Conceitos do React](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%201/ignite-template-reactjs-conceitos-do-react-main)
 - [Desafio 02: Componentizando a aplicação](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%201/ignite-template-componentizando-a-aplicacao-main)
 
-### Anotações
-
 ### Chapter II
 - [Primeira Aplicação Web com ReactJS](https://github.com/Ceviche9/ignite-react/tree/main/02-dt-money)
 - [Desafio 01: Criando um hook de carrinho de compras](https://github.com/Ceviche9/ignite-react/tree/main/Desafios/M%C3%B3dulo%202/ignite-template-reactjs-criando-um-hook-de-carrinho-de-compras-master)
