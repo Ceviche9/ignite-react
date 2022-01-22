@@ -100,3 +100,22 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 > Criando dados em massa utilizando faker.
 
 #### Nextauth
+
+
+
+### 📁 Chapter V
+
+- [Perfomando Apps com ReactJS](https://github.com/Ceviche9/ignite-react/tree/main/06-perfreact)
+
+### 🖊 Anotações
+
+## 📚 perfreact
+
+- pages/index.tsx
+
+> Fluxo de renderização do React.
+
+- components/ProductItem.tsx
+
+> Situações para utilizar o memo.
+
