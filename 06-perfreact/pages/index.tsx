@@ -37,3 +37,10 @@ export default function Home() {
     </div>
   )
 }
+
+/*
+  Fluxo de renderização do React =>
+  1. Criar uma nova versão do componente.
+  2. Comparar com a versão anterior.
+  3. Se houveram alterações, vai atualizar o que alterou.
+*/
