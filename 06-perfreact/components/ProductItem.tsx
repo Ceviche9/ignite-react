@@ -3,7 +3,7 @@ import { memo } from "react"
 type ProductItemProps = {
   product: {
     id: number
-    price: string
+    price: number
     title: string
   }
 }
@@ -14,7 +14,7 @@ type ProductItemProps = {
 function ProductItemComponent ({product}: ProductItemProps) {
   return (
     <div>
-      {product.title} - <strong>{product.title}</strong>
+      {product.title} - R$ <strong>{product.price},00 Reais</strong>
     </div>
   )
 }
