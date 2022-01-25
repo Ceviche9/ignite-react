@@ -115,3 +115,7 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 > Situações para utilizar o memo.
 
+- components/SearchResults.tsx
+
+> Situações para utilizar o useMemo.
+
