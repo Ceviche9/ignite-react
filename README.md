@@ -119,3 +119,7 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 > Situações para utilizar o useMemo.
 
+- components/ProductItem.tsx
+
+> Utilizando o Dynamic Import.
+
