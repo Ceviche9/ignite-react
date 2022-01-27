@@ -102,6 +102,7 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 ### 📁 Chapter V
 
 - [Perfomando Apps com ReactJS](https://github.com/Ceviche9/ignite-react/tree/main/06-perfreact)
+- [Desafio: Otimizando a aplicação](https://github.com/Ceviche9/ignite-orimizando-a-aplicacao)
 
 ### 🖊 Anotações
 
