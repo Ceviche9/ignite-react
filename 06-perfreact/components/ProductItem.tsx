@@ -1,4 +1,16 @@
-import { memo } from "react"
+import { memo, useState } from "react"
+import {AddProductToWishListProps} from "./AddProductToWIshList"
+
+import dynamic from "next/dynamic"
+// import { AddProductToWishList } from "./AddProductToWIshList"
+
+const AddProductToWishList = dynamic<AddProductToWishListProps>(() => {
+  // Esse componente não está sendo exportado como padrão, por isso o uso do then.
+  return import('./AddProductToWIshList').then(mod => mod.AddProductToWishList)
+},{
+  loading: () => <span>Carregando...</span>
+})
+
 
 type ProductItemProps = {
   product: {
@@ -14,10 +26,19 @@ type ProductItemProps = {
 // {} === {} // false
 
 function ProductItemComponent ({product, onAddToWishList}: ProductItemProps) {
+  const [isAddingToWishLIst, setIsAddingToWishLIst] = useState(false)
+
   return (
     <div>
       {product.title} - <strong>{product.priceFormatted}</strong>
-      <button onClick={() => onAddToWishList(product.id)}>Add to wish list</button>
+      <button onClick={() => setIsAddingToWishLIst(true)}>Adicionar aos favoritos</button>
+
+      {isAddingToWishLIst && (
+        <AddProductToWishList
+        onAddToWishLIst={() => onAddToWishList(product.id)}
+        onRequestClose={() => setIsAddingToWishLIst(false)}
+      />
+      )}
     </div>
   )
 }
