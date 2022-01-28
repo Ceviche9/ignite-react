@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
   console.log("Lista de preços", priceList)
   console.log("Array de preços", priceList.data)
 
-  const price = await stripe.prices.retrieve("price_1KMhrHGDGQLqJ9x2xD4o4m7G", {
+  const price = await stripe.prices.retrieve("price_1JnA6DGDGQLqJ9x27l6UvKYb", {
     expand: ["product"]
   })
   
