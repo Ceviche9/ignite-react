@@ -139,3 +139,7 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 > Utilizando o jest-mock para definir o retorno de uma função.
 
+- src/test/Home.spec.tsx
+
+> Testando o getStaticProps da página Home e fazendo mock de uma função assíncrona.
+
