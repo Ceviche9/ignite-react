@@ -4,10 +4,6 @@ import {mocked} from "jest-mock"
 import { useSession } from "next-auth/client"
 import { SingInButton } from './index';
 
-/*
-  Dentro do Header tem o componente  <SingInButton /> que utiliza uma função do next 
-*/
-
 jest.mock('next-auth/client')
 
 describe('SingInButton component', () => {

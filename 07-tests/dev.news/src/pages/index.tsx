@@ -20,7 +20,7 @@ export default function Home({product}: HomeProps) {
           <p>Get access to all the publications <br />
             <span>for {product.amount} month</span>
           </p>
-          <SubscribeButton priceId={product.priceId}/>
+          <SubscribeButton />
         </section>
         {/* O Next avisa para que seja utilizado o componente Image */}
         <Image 
@@ -35,18 +35,12 @@ export default function Home({product}: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-
-  const priceList = await stripe.prices.list({limit: 3})
-
-  console.log("Lista de preços", priceList)
-  console.log("Array de preços", priceList.data)
-
   const price = await stripe.prices.retrieve("price_1JnA6DGDGQLqJ9x27l6UvKYb", {
     expand: ["product"]
   })
   
   const product = {
-    priceID: price.id,
+    priceId: price.id,
     // O preço é salvo em centavos.
     amount: new Intl.NumberFormat('en-US', {
       style: 'currency',
