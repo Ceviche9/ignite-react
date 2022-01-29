@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react"
 import {mocked} from "jest-mock"
 import Post, { getServerSideProps } from "../../pages/posts/[slug]";
 import { getSession } from 'next-auth/client';
+import { getPrismicClient } from "../../services/prismic";
 
 const post = {
     slug: 'my-new-post',
@@ -37,5 +38,45 @@ describe('Home page', () => {
       })
     )
 
+  })
+
+  it('should loads initial data if user has subscription', async () => {
+    const getSessionMocked = mocked(getSession)
+    const getPrismicClientMocked = mocked(getPrismicClient)
+
+    getPrismicClientMocked.mockReturnValueOnce({
+      getByUID: jest.fn().mockResolvedValueOnce({
+        data: {
+          title:  [
+            {type: 'heading', text: 'My New Post'}
+          ],
+          content:  [
+            {type: 'paragraph', text: 'post content'}
+          ],
+        },
+        last_publication_date: '01-29-2022'
+      })
+    }as any)
+
+    getSessionMocked.mockResolvedValueOnce({
+      activeSubscription: 'fake-active-subscription'
+    }as any)
+
+    const response = await getServerSideProps({
+      params: {slug: 'my-new-post'}
+    } as any)
+
+    expect(response).toEqual(
+      expect.objectContaining({
+        props: {
+          post: {
+            slug: 'my-new-post',
+            title: 'My New Post',
+            content: 'post content',
+            updatedAt: '29 de janeiro de 2022'
+          }
+        }
+      })
+    )
   })
 })
