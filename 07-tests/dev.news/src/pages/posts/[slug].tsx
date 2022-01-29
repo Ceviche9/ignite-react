@@ -8,18 +8,13 @@ import { getPrismicClient } from "../../services/prismic";
 
 import { PostContentProps } from '../../protocols/postProtocols';
 
-import ReactMarkdown from 'react-markdown';
+// import ReactMarkdown from 'react-markdown';
 // import remarkHtml from 'remark-html';
-
-import prims from 'prismjs'
+// import prims from 'prismjs'
 
 import styles from './post.module.scss'
 
 export default function Post({ post }: PostContentProps) {
-  useEffect(() => {
-    prims.highlightAll();
-  }, []);
-
   return(
     <>
       <Head>
@@ -29,11 +24,10 @@ export default function Post({ post }: PostContentProps) {
         <article className={styles.post}>
           <h1>{post.title}</h1>
           <time>{post.updatedAt}</time>
-          <ReactMarkdown
+          <div 
             className={styles.postContent}
-          >
-            {post.content}
-          </ReactMarkdown>
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </article>
       </main>
     </>
