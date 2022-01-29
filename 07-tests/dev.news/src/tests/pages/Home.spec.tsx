@@ -25,6 +25,7 @@ describe('Home page', () => {
   it('should loads initial data', async () => {
     const retrieveStripePricesMocked = mocked(stripe.prices.retrieve)
 
+    // Quando a função for uma promise.
     retrieveStripePricesMocked.mockResolvedValueOnce({
       id: 'fake-price-id',
       unit_amount: 1000,
