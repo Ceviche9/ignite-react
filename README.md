@@ -125,3 +125,17 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 > Utilizando o Dynamic Import.
 
+#### 📚 dev.news
+
+- jest.config.js
+
+> Configuração inicial do Jest.
+
+- src/components/ActiveLink/ActiveLink.spec.tsx
+
+> Fazendo mock de uma função do Next.
+
+- src/components/SingInButton/SingInButton.spec.tsx
+
+> Utilizando o jest-mock para definir o retorno de uma função.
+
