@@ -143,3 +143,10 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 > Testando o getStaticProps da página Home e fazendo mock de uma função assíncrona.
 
+- src/test/Posts.spec.tsx
+
+> Testando a página de posts.
+
+- src/test/Post.spec.tsx
+
+> Testando a página de post.
