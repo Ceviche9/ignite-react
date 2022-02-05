@@ -6,6 +6,7 @@
     "dev": "next dev",
     "webhook": "stripe listen --forward-to localhost:3000/api/webhooks",
     "test": "yarn jest",
+    "coverage": "yarn jest --coverage",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

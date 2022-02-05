@@ -22,12 +22,11 @@ jest.mock('next-auth/client', () => {
   }
 })
 
-describe('Header component', () => {
+describe('Header', () => {
   it('should render correctly', () => {
     render(
       <Header/>
     )
-
 
     // Para abrir uma página no navegador que mostra a melhor forma de pegar elementos do componente.
     screen.logTestingPlaygroundURL()

@@ -7,7 +7,7 @@ import { SubscribeButton } from './index';
 jest.mock('next-auth/client')
 jest.mock('next/router')
 
-describe('SubscribeButton component', () => {
+describe('SubscribeButton', () => {
   it('should render correctly', () => {
     const useSessionMocked = mocked(useSession)
 
