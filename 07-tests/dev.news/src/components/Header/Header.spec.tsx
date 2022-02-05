@@ -28,6 +28,10 @@ describe('Header component', () => {
       <Header/>
     )
 
+
+    // Para abrir uma página no navegador que mostra a melhor forma de pegar elementos do componente.
+    screen.logTestingPlaygroundURL()
+
     expect(screen.getByText('Home')).toBeInTheDocument()
     expect(screen.getByText('Posts')).toBeInTheDocument()
   })
