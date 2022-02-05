@@ -137,6 +137,14 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 
 - src/components/SingInButton/SingInButton.spec.tsx
 
+> Utilizando o test playground.
+
+- src/components/Header/Header.spec.tsx
+
+> Fazendo test  em funções assíncronas.
+
+- src/components/Async/Async.spec.tsx
+
 > Utilizando o jest-mock para definir o retorno de uma função.
 
 - src/test/Home.spec.tsx
@@ -144,9 +152,3 @@ Neste Repositório se encontra todos os projetos e anotações desenvolvidos na 
 > Testando o getStaticProps da página Home e fazendo mock de uma função assíncrona.
 
 - src/test/Posts.spec.tsx
-
-> Testando a página de posts.
-
-- src/test/Post.spec.tsx
-
-> Testando a página de post.
