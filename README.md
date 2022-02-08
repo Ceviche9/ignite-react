@@ -3,15 +3,7 @@
 </h1>
 
 <p align="center">
-   <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs/a11afefe824866f24dd3f9e1cc6e6e9530376ad1/%40assets/img/logo.svg" alt="Ignite" width="180"/>
-</p>
-
-<p align="center">
-   <a href="https://www.linkedin.com/in/tund%C3%AA-cavalcante-1621441ba/">
-      <img alt="Tundê Cavalcante" src="https://img.shields.io/badge/-Tundê Cavalcante-01B755?style=flat&logo=Linkedin&logoColor=white" />
-   </a>
-
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-01B755">
+   <img src="https://user-images.githubusercontent.com/83431609/152696214-a408d461-ff0b-4b6c-adf9-1592a5d00f70.png" alt="Ignite" width="980"/>
 </p>
 
 Neste Repositório se encontra todos os projetos e anotações desenvolvidos na trilha de ReactJS do Ignite da [Rocketseat](https://github.com/Rocketseat). Nesse Readme, você pode encontrar a localização de alguns comentários importantes em cada um dos capitulos. E no Readme de cada pasta tem uma descrição sobre o projeto/desafio, um pouco sobre os assuntos abordados e um print do projeto.
